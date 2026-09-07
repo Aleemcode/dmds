@@ -36,6 +36,9 @@
   --wf-blue: #3B86FE;        /* Brilliant Blue */
   --wf-blue-tint: #EEF4FF;
 
+  --wf-danger: #E11D48;      /* Error & Danger Crimson */
+  --wf-danger-tint: #FFEBE1;
+
   /* — Category Chips — */
   --wf-lime: #E1F8EC;
   --wf-sky: #E2EEFF;
@@ -56,10 +59,6 @@
   --wf-r-md: 12px; 
   --wf-r-sm: 8px; 
   --wf-r-pill: 9999px;
-
-  /* — Spacing (4px base) — */
-  --wf-s1: 4px; --wf-s2: 8px; --wf-s3: 12px; --wf-s4: 16px; --wf-s5: 20px;
-  --wf-s6: 24px; --wf-s7: 32px; --wf-s8: 40px; --wf-s9: 56px; --wf-s10: 72px; --wf-s11: 96px;
 
   /* — Typography — */
   --wf-f-disp: "Bricolage Grotesque", -apple-system, sans-serif;
@@ -87,7 +86,7 @@ body {
    CORE COMPONENT UTILITY CLASSES
    ============================================================ */
 
-/* Tactile Buttons */
+/* Tactile Buttons (Zero Text Break) */
 .wf-btn {
   display: inline-flex;
   align-items: center;
@@ -95,8 +94,8 @@ body {
   gap: 8px;
   font-family: var(--wf-f-disp);
   font-weight: 700;
-  font-size: 15px;
-  padding: 12px 24px;
+  font-size: 14.5px;
+  padding: 10px 22px;
   border-radius: var(--wf-r-pill);
   border: var(--wf-bw) solid var(--wf-border);
   background: var(--wf-terra);
@@ -104,8 +103,9 @@ body {
   text-decoration: none;
   box-shadow: var(--wf-shadow);
   cursor: pointer;
-  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease), background var(--wf-dur);
+  white-space: nowrap !important;
   user-select: none;
+  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease), background var(--wf-dur);
 }
 
 .wf-btn:hover {
@@ -138,9 +138,17 @@ body {
   color: #FFFFFF;
 }
 
+.wf-btn--danger {
+  background: var(--wf-danger);
+  color: #FFFFFF;
+}
+.wf-btn--danger:hover {
+  background: #BE123C;
+}
+
 .wf-btn--sm {
-  padding: 8px 16px;
-  font-size: 13.5px;
+  padding: 7px 15px;
+  font-size: 13px;
   box-shadow: var(--wf-shadow-sm);
 }
 
@@ -154,11 +162,12 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 4px 11px;
   border-radius: var(--wf-r-pill);
   border: var(--wf-bw-thin) solid var(--wf-border);
   background: var(--wf-surface);
   color: var(--wf-ink);
+  white-space: nowrap;
 }
 
 .mono-tag--terra { background: var(--wf-terra-tint); color: var(--wf-terra-deep); }
@@ -172,7 +181,7 @@ body {
   border: var(--wf-bw) solid var(--wf-border);
   border-radius: var(--wf-r-lg);
   box-shadow: var(--wf-shadow);
-  padding: 24px;
+  padding: 22px;
   transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease);
 }
 
@@ -187,67 +196,70 @@ body {
   border-color: var(--wf-forest);
 }
 
-/* Modals & Drawers */
-.wf-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 31, 81, 0.45);
-  backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--wf-dur);
-}
-
-.wf-modal-backdrop.is-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.wf-modal-dialog {
-  background: var(--wf-surface);
-  border: var(--wf-bw) solid var(--wf-border);
-  border-radius: var(--wf-r-xl);
-  box-shadow: var(--wf-shadow-lg);
+/* Form Controls Suite */
+.wf-input {
   width: 100%;
-  max-width: 580px;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  transform: scale(0.95) translateY(10px);
-  transition: transform var(--wf-dur) var(--wf-ease);
+  padding: 10px 14px;
+  border: var(--wf-bw) solid var(--wf-border);
+  border-radius: var(--wf-r-md);
+  background: var(--wf-surface);
+  font-family: var(--wf-f-body);
+  font-size: 14px;
+  color: var(--wf-ink);
+  outline: none;
+  transition: border-color var(--wf-dur), box-shadow var(--wf-dur);
+}
+.wf-input:focus {
+  border-color: var(--wf-terra);
+  box-shadow: 0 0 0 3px rgba(251, 87, 7, 0.18);
+}
+.wf-input--error {
+  border-color: var(--wf-danger);
+  background: #FFF5F5;
+}
+.wf-input--error:focus {
+  border-color: var(--wf-danger);
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18);
+}
+.wf-input--success {
+  border-color: var(--wf-green);
+  background: #F4FDF8;
+}
+.wf-input--success:focus {
+  border-color: var(--wf-green);
+  box-shadow: 0 0 0 3px rgba(27, 198, 127, 0.18);
+}
+.wf-input:disabled {
+  opacity: 0.6;
+  background: var(--wf-ground-2);
+  cursor: not-allowed;
 }
 
-.wf-modal-backdrop.is-open .wf-modal-dialog {
-  transform: scale(1) translateY(0);
+.wf-select {
+  width: 100%;
+  padding: 10px 42px 10px 14px;
+  border: var(--wf-bw) solid var(--wf-border);
+  border-radius: var(--wf-r-md);
+  background-color: var(--wf-surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23001F51' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 16px) center;
+  background-size: 16px;
+  font-family: var(--wf-f-body);
+  font-size: 14px;
+  color: var(--wf-ink);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color var(--wf-dur), box-shadow var(--wf-dur);
+}
+.wf-select:focus {
+  border-color: var(--wf-terra);
+  box-shadow: 0 0 0 3px rgba(251, 87, 7, 0.18);
 }
 
-/* Mobile Bottom Sheet Standard */
-@media (max-width: 680px) {
-  .wf-modal-backdrop {
-    align-items: flex-end;
-    padding: 0;
-  }
-  .wf-modal-dialog {
-    max-width: 100%;
-    border-bottom: none;
-    border-radius: var(--wf-r-xl) var(--wf-r-xl) 0 0;
-    box-shadow: 0 -4px 0 var(--wf-border);
-    transform: translateY(100%);
-    padding-bottom: env(safe-area-inset-bottom, 20px);
-  }
-  .wf-modal-backdrop.is-open .wf-modal-dialog {
-    transform: translateY(0);
-  }
-}
-
-/* ============================================================
-   FEEDBACK TOAST NOTIFICATION CARDS (SIGNATURE DMDS STANDARD)
-   ============================================================ */
+/* Feedback Toast Cards */
 .wf-toast {
   position: relative;
   display: flex;
@@ -255,18 +267,17 @@ body {
   gap: 6px;
   border: var(--wf-bw) solid var(--wf-border);
   border-radius: var(--wf-r-lg);
-  padding: 16px 20px;
+  padding: 14px 18px;
   box-shadow: var(--wf-shadow);
-  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur);
   background: var(--wf-surface);
 }
 
 .wf-toast__meta {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--wf-f-mono);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -274,31 +285,19 @@ body {
 
 .wf-toast__body {
   font-family: var(--wf-f-body);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 14.5px;
+  line-height: 1.45;
   color: var(--wf-ink);
 }
 
-.wf-toast--success {
-  background: #E1F8EC;
-  border-color: var(--wf-border);
-}
+.wf-toast--success { background: #E1F8EC; border-color: var(--wf-border); }
 .wf-toast--success .wf-toast__meta { color: #006634; }
 
-.wf-toast--caution {
-  background: #FFF8E8;
-  border-color: var(--wf-border);
-}
+.wf-toast--caution { background: #FFF8E8; border-color: var(--wf-border); }
 .wf-toast--caution .wf-toast__meta { color: #916100; }
 
-.wf-toast--error {
-  background: #FFEBE1;
-  border-color: var(--wf-border);
-}
+.wf-toast--error { background: #FFEBE1; border-color: var(--wf-border); }
 .wf-toast--error .wf-toast__meta { color: #9F1239; }
 
-.wf-toast--info {
-  background: #EEF4FF;
-  border-color: var(--wf-border);
-}
+.wf-toast--info { background: #EEF4FF; border-color: var(--wf-border); }
 .wf-toast--info .wf-toast__meta { color: #0A2D6E; }

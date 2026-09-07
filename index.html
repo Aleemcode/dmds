@@ -346,6 +346,7 @@
       cursor: pointer;
       align-items: center;
       gap: 8px;
+      white-space: nowrap !important;
       transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur);
     }
     .studio-fab:active {
@@ -398,45 +399,6 @@
       margin: 0 auto 16px;
       opacity: 0.35;
     }
-
-    /* Feedback Toast Component */
-    .wf-toast {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border: var(--wf-bw) solid var(--wf-border);
-      border-radius: var(--wf-r-lg);
-      padding: 14px 18px;
-      box-shadow: var(--wf-shadow);
-      background: var(--wf-surface);
-    }
-    .wf-toast__meta {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--wf-f-mono);
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      flex-wrap: wrap;
-    }
-    .wf-toast__body {
-      font-family: var(--wf-f-body);
-      font-size: 14.5px;
-      line-height: 1.45;
-      color: var(--wf-ink);
-      text-wrap: pretty;
-    }
-    .wf-toast--success { background: #E1F8EC; border-color: var(--wf-border); }
-    .wf-toast--success .wf-toast__meta { color: #006634; }
-    .wf-toast--caution { background: #FFF8E8; border-color: var(--wf-border); }
-    .wf-toast--caution .wf-toast__meta { color: #916100; }
-    .wf-toast--error { background: #FFEBE1; border-color: var(--wf-border); }
-    .wf-toast--error .wf-toast__meta { color: #9F1239; }
-    .wf-toast--info { background: #EEF4FF; border-color: var(--wf-border); }
-    .wf-toast--info .wf-toast__meta { color: #0A2D6E; }
 
     /* Exporter Box */
     .exporter-box {
@@ -640,23 +602,13 @@
         <li><a href="#integration" class="dmds-nav__link">Tailwind / Radix</a></li>
       </ul>
       <div style="display: flex; align-items: center; gap: 8px;">
-        <button onclick="openStudioSheet()" class="wf-btn wf-btn--sm" style="display:none;" id="nav-studio-btn">
-          <i class="ph-bold ph-sliders-horizontal ph-sm"></i> Theme
-        </button>
         <a href="https://github.com/Aleemcode/dmds" target="_blank" rel="noopener" class="wf-btn wf-btn--sm wf-btn--secondary">
           <i class="ph-bold ph-github-logo ph-sm"></i>
-          <span class="desktop-only">Fork on GitHub</span>
+          Fork on GitHub
         </a>
       </div>
     </div>
   </nav>
-
-  <style>
-    @media (max-width: 920px) {
-      #nav-studio-btn { display: inline-flex !important; }
-      .desktop-only { display: none; }
-    }
-  </style>
 
   <!-- Hero Section -->
   <header class="hero">
@@ -813,16 +765,16 @@
             <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 14px;">Tactile Buttons & Interactive Triggers</h3>
             <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
               <button class="wf-btn wf-btn--sm" onclick="fireToast('success')">
-                <i class="ph-bold ph-check"></i> Fire Success Toast
+                <i class="ph-bold ph-check"></i> Fire Success
               </button>
               <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="fireToast('caution')">
-                <i class="ph-bold ph-warning"></i> Fire Caution Toast
+                <i class="ph-bold ph-warning"></i> Fire Caution
               </button>
-              <button class="wf-btn wf-btn--sm wf-btn--forest" onclick="fireToast('error')">
-                <i class="ph-bold ph-x"></i> Fire Error Toast
+              <button class="wf-btn wf-btn--sm wf-btn--danger" onclick="fireToast('error')">
+                <i class="ph-bold ph-x"></i> Fire Error
               </button>
               <button class="wf-btn wf-btn--sm wf-btn--secondary" onclick="fireToast('info')">
-                <i class="ph-bold ph-info"></i> Fire Info Toast
+                <i class="ph-bold ph-info"></i> Fire Info
               </button>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:8px;">
@@ -841,26 +793,67 @@
             </p>
             <div style="display:flex; flex-wrap:wrap; gap:10px;">
               <button class="wf-btn wf-btn--forest" onclick="openModal()">
-                <i class="ph-bold ph-browsers"></i> Launch Interactive Modal / Drawer
+                <i class="ph-bold ph-browsers"></i> Launch Modal & Drawer
               </button>
             </div>
           </div>
 
-          <!-- Form Controls -->
+          <!-- Form Controls & All Essential States -->
           <div class="wf-card">
-            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 14px;">Form Controls & High-Contrast Inputs</h3>
+            <div style="margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;">
+              <span class="mono-tag mono-tag--blue">Input Architecture</span>
+              <span style="font-family: var(--wf-f-mono); font-size: 10.5px; color: var(--wf-muted); font-weight: 700;">ALL STATES</span>
+            </div>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 14px;">Form Controls & High-Contrast States</h3>
+            
             <div class="demo-grid-2">
+              <!-- Default State -->
               <div>
-                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; margin-bottom:5px; display:block;">Full Name</label>
-                <input type="text" value="Aleem Akinyoola" style="width:100%; padding:10px 12px; border:var(--wf-bw) solid var(--wf-border); border-radius:var(--wf-r-md); background:var(--wf-surface); font-family:var(--wf-f-body); font-size:14px; outline:none;" />
+                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; margin-bottom:5px; display:block;">Full Name (Default)</label>
+                <input type="text" class="wf-input" value="Aleem Akinyoola" placeholder="Enter full name" />
               </div>
+
+              <!-- Select Dropdown with Clean Right Offset -->
               <div>
                 <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; margin-bottom:5px; display:block;">System Icon Family</label>
-                <select style="width:100%; padding:10px 12px; border:var(--wf-bw) solid var(--wf-border); border-radius:var(--wf-r-md); background:var(--wf-surface); font-family:var(--wf-f-body); font-size:14px; outline:none;">
+                <select class="wf-select">
                   <option>Phosphor Icons (ph-bold / @phosphor-icons/react)</option>
                   <option>Phosphor Regular</option>
                   <option>Phosphor Duotone</option>
                 </select>
+              </div>
+
+              <!-- Error State -->
+              <div>
+                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; color:var(--wf-danger); margin-bottom:5px; display:flex; align-items:center; gap:4px;">
+                  <i class="ph-bold ph-warning-circle"></i> Work Email (Error State)
+                </label>
+                <input type="email" class="wf-input wf-input--error" value="invalid-email-address" />
+                <span style="font-size:11.5px; color:var(--wf-danger); font-family:var(--wf-f-disp); font-weight:600; margin-top:4px; display:block;">Please enter a valid email address.</span>
+              </div>
+
+              <!-- Success State -->
+              <div>
+                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; color:#006634; margin-bottom:5px; display:flex; align-items:center; gap:4px;">
+                  <i class="ph-bold ph-check-circle"></i> Username (Success State)
+                </label>
+                <input type="text" class="wf-input wf-input--success" value="aleemcode" />
+                <span style="font-size:11.5px; color:#006634; font-family:var(--wf-f-disp); font-weight:600; margin-top:4px; display:block;">Username is available!</span>
+              </div>
+
+              <!-- Disabled State -->
+              <div>
+                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; color:var(--wf-muted); margin-bottom:5px; display:block;">API Secret Key (Disabled)</label>
+                <input type="text" class="wf-input" value="dmds_live_99882233" disabled />
+              </div>
+
+              <!-- Prefix Search Input -->
+              <div>
+                <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; margin-bottom:5px; display:block;">Search Tokens</label>
+                <div style="position:relative; width:100%;">
+                  <i class="ph-bold ph-magnifying-glass" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--wf-muted); pointer-events:none;"></i>
+                  <input type="text" class="wf-input" placeholder="Search tokens or components..." style="padding-left:36px;" />
+                </div>
               </div>
             </div>
           </div>
