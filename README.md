@@ -29,11 +29,16 @@ Most brutalist systems feel punishingly cold and aggressive, while modern corpor
 
 ## 📦 Quickstart
 
-### 1. Install via NPM / Git
+### 1. Install via Starter Template or Direct GitHub
 ```bash
+# Option A: Instant Starter Kit (Recommended)
+npx degit Aleemcode/dmds my-app
+
+# Option B: Direct GitHub dependency
+npm install github:Aleemcode/dmds @phosphor-icons/react
+
+# Option C: Git clone
 git clone https://github.com/Aleemcode/dmds.git
-# or
-npm install @dmaven/design-system
 ```
 
 ### 2. Add Tailwind Preset
