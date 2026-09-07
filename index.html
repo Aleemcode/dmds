@@ -176,13 +176,13 @@
 
     /* CLI Quick Install Terminal Box */
     .cli-box {
-      background: var(--wf-forest);
+      background: var(--wf-surface);
       border: var(--wf-bw) solid var(--wf-border);
       border-radius: var(--wf-r-lg);
       padding: 16px;
       box-shadow: var(--wf-shadow);
       max-width: 680px;
-      color: var(--wf-ink-inv);
+      color: var(--wf-ink);
     }
     .cli-box__header {
       display: flex;
@@ -191,7 +191,7 @@
       flex-wrap: wrap;
       gap: 10px;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: var(--wf-bw-thin) solid var(--wf-ground-2);
       margin-bottom: 12px;
     }
     .cli-tabs {
@@ -205,25 +205,26 @@
       font-weight: 700;
       padding: 4px 10px;
       border-radius: var(--wf-r-pill);
-      background: rgba(255,255,255,0.1);
-      color: var(--wf-ink-inv);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--wf-ground);
+      color: var(--wf-ink);
+      border: var(--wf-bw-thin) solid var(--wf-border);
       cursor: pointer;
       transition: all 0.15s;
     }
     .cli-tab.active {
       background: var(--wf-terra);
       color: #FFFFFF;
-      border-color: var(--wf-terra);
+      border-color: var(--wf-border);
+      box-shadow: 2px 2px 0 var(--wf-border);
     }
     .cli-command-row {
       display: flex;
       align-items: center;
       gap: 10px;
       background: #001230;
-      padding: 10px 14px;
-      border-radius: var(--wf-r-sm);
-      border: 1px solid rgba(255,255,255,0.1);
+      padding: 12px 16px;
+      border-radius: var(--wf-r-md);
+      border: var(--wf-bw-thin) solid var(--wf-border);
       overflow-x: auto;
       font-family: var(--wf-f-mono);
       font-size: 13px;
@@ -234,7 +235,7 @@
       user-select: none;
     }
     .cli-cmd {
-      color: #E2E8F0;
+      color: #F8FAFC;
       white-space: nowrap;
       user-select: all;
     }
@@ -495,8 +496,8 @@
 
     /* Exporter Box */
     .exporter-box {
-      background: var(--wf-forest);
-      color: var(--wf-ink-inv);
+      background: var(--wf-surface);
+      color: var(--wf-ink);
       border: var(--wf-bw) solid var(--wf-border);
       border-radius: var(--wf-r-lg);
       padding: clamp(16px, 3vw, 24px);
@@ -510,7 +511,7 @@
       flex-wrap: wrap;
       gap: 10px;
       padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.15);
+      border-bottom: var(--wf-bw-thin) solid var(--wf-ground-2);
       margin-bottom: 14px;
     }
     .exporter-tabs {
@@ -524,27 +525,28 @@
       font-weight: 700;
       padding: 5px 12px;
       border-radius: var(--wf-r-pill);
-      background: rgba(255,255,255,0.1);
-      color: var(--wf-ink-inv);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--wf-ground);
+      color: var(--wf-ink);
+      border: var(--wf-bw-thin) solid var(--wf-border);
       cursor: pointer;
       transition: all 0.15s;
     }
     .exporter-tab.active {
       background: var(--wf-terra);
       color: #FFFFFF;
-      border-color: var(--wf-terra);
+      border-color: var(--wf-border);
+      box-shadow: 2px 2px 0 var(--wf-border);
     }
     .exporter-code {
       font-family: var(--wf-f-mono);
-      font-size: 12px;
-      line-height: 1.55;
+      font-size: 12.5px;
+      line-height: 1.6;
       background: #001230;
-      color: #E2E8F0;
-      padding: 16px;
+      color: #F8FAFC;
+      padding: 18px;
       border-radius: var(--wf-r-md);
-      border: 1px solid rgba(255,255,255,0.1);
-      max-height: 380px;
+      border: var(--wf-bw-thin) solid var(--wf-border);
+      max-height: 420px;
       overflow-x: auto;
       overflow-y: auto;
       white-space: pre;
@@ -731,13 +733,20 @@
       <!-- CLI Install & Fork Box (NPM / Degit / Git) -->
       <div class="cli-box">
         <div class="cli-box__header">
-          <div class="cli-tabs">
-            <button class="cli-tab active" onclick="switchCliTab('npm')">npm install</button>
-            <button class="cli-tab" onclick="switchCliTab('pnpm')">pnpm</button>
-            <button class="cli-tab" onclick="switchCliTab('yarn')">yarn</button>
-            <button class="cli-tab" onclick="switchCliTab('bun')">bun</button>
-            <button class="cli-tab" onclick="switchCliTab('degit')">npx degit</button>
-            <button class="cli-tab" onclick="switchCliTab('git')">git clone</button>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <div style="display:flex; gap:5px; align-items:center;">
+              <span style="width:9px; height:9px; border-radius:50%; background:#FB5707; display:inline-block; border:1px solid var(--wf-border);"></span>
+              <span style="width:9px; height:9px; border-radius:50%; background:#FFCB66; display:inline-block; border:1px solid var(--wf-border);"></span>
+              <span style="width:9px; height:9px; border-radius:50%; background:#1BC67F; display:inline-block; border:1px solid var(--wf-border);"></span>
+            </div>
+            <div class="cli-tabs">
+              <button class="cli-tab active" onclick="switchCliTab('npm')">npm install</button>
+              <button class="cli-tab" onclick="switchCliTab('pnpm')">pnpm</button>
+              <button class="cli-tab" onclick="switchCliTab('yarn')">yarn</button>
+              <button class="cli-tab" onclick="switchCliTab('bun')">bun</button>
+              <button class="cli-tab" onclick="switchCliTab('degit')">npx degit</button>
+              <button class="cli-tab" onclick="switchCliTab('git')">git clone</button>
+            </div>
           </div>
           <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="copyCliCommand()">
             <i class="ph-bold ph-copy ph-sm"></i> Copy
@@ -1051,10 +1060,17 @@
 
       <div class="exporter-box">
         <div class="exporter-header">
-          <div class="exporter-tabs">
-            <button class="exporter-tab active" id="tab-skill" onclick="switchExportTab('skill')">SKILL.md</button>
-            <button class="exporter-tab" id="tab-tailwind" onclick="switchExportTab('tailwind')">tailwind.config.js</button>
-            <button class="exporter-tab" id="tab-css" onclick="switchExportTab('css')">tokens.css</button>
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <div style="display:flex; gap:6px; align-items:center;">
+              <span style="width:10px; height:10px; border-radius:50%; background:#FB5707; display:inline-block; border:1px solid var(--wf-border);"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:#FFCB66; display:inline-block; border:1px solid var(--wf-border);"></span>
+              <span style="width:10px; height:10px; border-radius:50%; background:#1BC67F; display:inline-block; border:1px solid var(--wf-border);"></span>
+            </div>
+            <div class="exporter-tabs">
+              <button class="exporter-tab active" id="tab-skill" onclick="switchExportTab('skill')">SKILL.md</button>
+              <button class="exporter-tab" id="tab-tailwind" onclick="switchExportTab('tailwind')">tailwind.config.js</button>
+              <button class="exporter-tab" id="tab-css" onclick="switchExportTab('css')">tokens.css</button>
+            </div>
           </div>
           <div style="display:flex; gap:8px;">
             <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="copyCurrentCode()">
