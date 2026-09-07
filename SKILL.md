@@ -3,7 +3,7 @@ name: dmaven-warm-fusion
 description: >-
   Comprehensive guide and design system rules for DMaven Design System (Warm Fusion).
   Combines Neo-Brutalist tactile physics with Swiss typographic warmth for rich multi-color brands.
-  Includes Tailwind CSS presets, Radix UI accessible primitives, and strict guardrails.
+  Includes Tailwind CSS presets, Radix UI accessible primitives, Phosphor Icons, and strict guardrails.
 ---
 
 # DMaven Design System · Warm Fusion (`dmaven-warm-fusion`)
@@ -28,7 +28,15 @@ The **DMaven Design System** is an intentional, high-contrast design language an
 
 ---
 
-## 2. Core Token Standards
+## 2. System Icon Standard: Phosphor Icons
+- **Official Icon Family**: **Phosphor Icons** (`@phosphor-icons/react`, `@phosphor-icons/web`).
+- **Default Weight**: `bold` (matches the 2.5px brutalist border weight and geometric character).
+- **Alternative Weights**: `regular` (for subtle utility captions), `duotone` (for featured badges).
+- **No Emojis**: Never use system emojis for UI controls or navigation. Always use Phosphor Icons.
+
+---
+
+## 3. Core Token Standards
 
 ### Color Palette (Canonical Values)
 ```css
@@ -94,27 +102,13 @@ The **DMaven Design System** is an intentional, high-contrast design language an
 
 ---
 
-## 3. Strict System Guardrails
+## 4. Strict System Guardrails
 
-1. **Never use soft, blurred shadows**: Always use hard offset drop shadows (`5px 5px 0 #001F51` or `3px 3px 0 #001F51`). Never `box-shadow: 0 4px 6px rgba(0,0,0,0.1)`.
-2. **Never use pure #000000 black for borders/ink**: Always use Deep Navy `#001F51` (or the customized brand ink).
-3. **Never use purple #8B5CF6 or unanchored neon colors**: Keep strictly to the brand palette tokens.
-4. **No emojis in UI controls or icons**: Always use clean Lucide SVG vector icons (`stroke-width: 2.2`).
-5. **Mobile-first Drawer / Modal standard**:
-   - On screens <= 680px, modals **must** dock to `bottom: 0` as a bottom-sheet drawer with a tactile pill handle (`.wf-modal-handle`), zero lateral offset, and safe-area padding.
+1. **Icons**: Exclusively use **Phosphor Icons** (weight: `bold` or `regular`). Never use emojis or mismatched icon sets.
+2. **Shadows**: Never use soft, blurred shadows. Always use hard offset drop shadows (`5px 5px 0 #001F51`).
+3. **Ink**: Never use pure #000000 black for borders/ink unless explicitly customized. Default to Deep Navy `#001F51`.
+4. **Mobile-first Drawer / Modal standard**:
+   - On screens <= 680px, modals **must** dock to `bottom: 0` as a bottom-sheet drawer with a tactile drag handle (`.wf-modal-handle`), zero lateral offset, and safe-area padding.
    - On desktop screens (> 680px), modals render as centered dialogs with a solid 8px × 8px drop shadow.
-6. **Minimum Touch Target**: All clickable elements must have a minimum tap target of 44px × 44px on mobile.
-7. **Tactile Button Press**: Interactive buttons must animate with physical feedback on active: `transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--wf-border);`.
-
----
-
-## 4. Architecture: Tailwind CSS + Radix UI
-
-- **Tailwind Utility Tokens**:
-  - `bg-ground`, `bg-ground-2`, `bg-surface`, `bg-terra`, `bg-forest`, `bg-green`, `bg-gold`, `bg-blue`
-  - `border-wf` (2.5px solid #001F51), `border-wf-thin` (2px solid #001F51)
-  - `shadow-wf` (5px 5px 0 #001F51), `shadow-wf-sm` (3px 3px 0 #001F51), `shadow-wf-lg` (8px 8px 0 #001F51)
-  - `rounded-wf-xl` (22px), `rounded-wf-lg` (16px), `rounded-wf-md` (12px), `rounded-wf-pill` (9999px)
-  - `font-display`, `font-body`, `font-mono`, `font-arabic`
-- **Radix UI Primitives**:
-  - Wrap Radix `Dialog`, `Sheet`, `Tabs`, `Accordion`, `DropdownMenu`, `Tooltip`, `Switch` in DMaven Warm Fusion Tailwind classes to achieve accessible, unstyled logic with tactile brutalist styling.
+5. **Minimum Touch Target**: All clickable elements must have a minimum tap target of 44px × 44px on mobile.
+6. **Tactile Button Press**: Interactive buttons must animate with physical feedback on active: `transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--wf-border);`.

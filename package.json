@@ -1,7 +1,7 @@
 {
   "name": "@dmaven/design-system",
   "version": "1.0.0",
-  "description": "DMaven Design System (Warm Fusion) — Neo-Brutalist structure meets Swiss warmth for multi-color brands. Includes Tailwind presets, Radix primitives, and AI agent skills.",
+  "description": "DMaven Design System (Warm Fusion) — Neo-Brutalist structure meets Swiss warmth for multi-color brands. Includes Tailwind presets, Radix primitives, Phosphor Icons, and AI agent skills.",
   "main": "dmaven.preset.js",
   "module": "src/index.ts",
   "style": "src/styles/tokens.css",
@@ -18,6 +18,7 @@
     "warm-fusion",
     "neo-brutalism",
     "swiss-design",
+    "phosphor-icons",
     "tailwind",
     "radix-ui",
     "antigravity",
@@ -35,6 +36,8 @@
     "tailwindcss": ">=3.3.0"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
+    "@phosphor-icons/web": "^2.1.1",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
@@ -43,7 +46,6 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@radix-ui/react-tooltip": "^1.1.2",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.475.0",
     "tailwind-merge": "^2.5.2"
   }
 }
