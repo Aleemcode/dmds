@@ -1,0 +1,49 @@
+{
+  "name": "@dmaven/design-system",
+  "version": "1.0.0",
+  "description": "DMaven Design System (Warm Fusion) — Neo-Brutalist structure meets Swiss warmth for multi-color brands. Includes Tailwind presets, Radix primitives, and AI agent skills.",
+  "main": "dmaven.preset.js",
+  "module": "src/index.ts",
+  "style": "src/styles/tokens.css",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Build complete'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aleemcode/dmds.git"
+  },
+  "keywords": [
+    "design-system",
+    "warm-fusion",
+    "neo-brutalism",
+    "swiss-design",
+    "tailwind",
+    "radix-ui",
+    "antigravity",
+    "ai-agent-skills"
+  ],
+  "author": "Aleem Akinyoola <aleem@dmaven.design>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aleemcode/dmds/issues"
+  },
+  "homepage": "https://github.com/Aleemcode/dmds#readme",
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.3.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-toast": "^1.1.5",
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.344.0",
+    "tailwind-merge": "^2.2.1"
+  }
+}

@@ -1,0 +1,246 @@
+/* ============================================================
+   DMAVEN DESIGN SYSTEM — WARM FUSION CANONICAL TOKENS
+   Neo-Brutalist structure meets Swiss warmth for multi-color brands.
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* — Grounds & Surfaces — */
+  --wf-ground: #F9F6F0;      /* App background (warm organic cream) */
+  --wf-ground-2: #F1ECE0;    /* Raised / alt section wash */
+  --wf-surface: #FFFFFF;     /* Pure card surface */
+  --wf-forest: #001F51;      /* Deep DMaven Navy — main ink & dark borders */
+  --wf-pine: #0A2D6E;        /* Navy secondary */
+
+  /* — Ink Hierarchy — */
+  --wf-ink: #001F51;
+  --wf-ink-2: #27456D;
+  --wf-muted: #5E718D;
+  --wf-ink-inv: #F8FAFC;     /* Text on dark panels */
+  --wf-ink-inv-2: #CBD5E1;
+
+  /* — Brand Accents — */
+  --wf-terra: #FB5707;       /* Primary CTA & Energy Orange */
+  --wf-terra-deep: #D44200;  /* Hover / active */
+  --wf-terra-tint: #FFF0EA;  /* Accent wash */
+
+  --wf-green: #1BC67F;       /* Emerald Growth & Barakah */
+  --wf-green-dark: #006634;
+  --wf-green-tint: #E8F9F1;
+
+  --wf-gold: #FFCB66;        /* Warm Gold */
+  --wf-gold-dark: #916100;
+  --wf-gold-tint: #FFF8E8;
+
+  --wf-blue: #3B86FE;        /* Brilliant Blue */
+  --wf-blue-tint: #EEF4FF;
+
+  /* — Category Chips — */
+  --wf-lime: #E1F8EC;
+  --wf-sky: #E2EEFF;
+  --wf-pink: #FCE7F3;
+  --wf-peach: #FFEBE1;
+
+  /* — Structure: The Brutalist Bone — */
+  --wf-border: #001F51;
+  --wf-bw: 2.5px;
+  --wf-bw-thin: 2px;
+  --wf-shadow: 5px 5px 0 var(--wf-border);
+  --wf-shadow-sm: 3px 3px 0 var(--wf-border);
+  --wf-shadow-lg: 8px 8px 0 var(--wf-border);
+
+  /* — Radius: The Warm Swiss Curve — */
+  --wf-r-xl: 22px; 
+  --wf-r-lg: 16px; 
+  --wf-r-md: 12px; 
+  --wf-r-sm: 8px; 
+  --wf-r-pill: 9999px;
+
+  /* — Spacing (4px base) — */
+  --wf-s1: 4px; --wf-s2: 8px; --wf-s3: 12px; --wf-s4: 16px; --wf-s5: 20px;
+  --wf-s6: 24px; --wf-s7: 32px; --wf-s8: 40px; --wf-s9: 56px; --wf-s10: 72px; --wf-s11: 96px;
+
+  /* — Typography — */
+  --wf-f-disp: "Bricolage Grotesque", -apple-system, sans-serif;
+  --wf-f-body: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --wf-f-mono: "Space Mono", ui-monospace, Menlo, monospace;
+  --wf-f-ar: "Amiri", serif;
+
+  /* — Motion & Transitions — */
+  --wf-dur: 200ms;
+  --wf-dur-fast: 120ms;
+  --wf-ease: cubic-bezier(.2,.7,.3,1);
+}
+
+/* Base Body Styles */
+body {
+  background: var(--wf-ground);
+  color: var(--wf-ink);
+  font-family: var(--wf-f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   CORE COMPONENT UTILITY CLASSES
+   ============================================================ */
+
+/* Tactile Buttons */
+.wf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--wf-f-disp);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 24px;
+  border-radius: var(--wf-r-pill);
+  border: var(--wf-bw) solid var(--wf-border);
+  background: var(--wf-terra);
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: var(--wf-shadow);
+  cursor: pointer;
+  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease), background var(--wf-dur);
+  user-select: none;
+}
+
+.wf-btn:hover {
+  transform: translate(-1.5px, -1.5px);
+  box-shadow: var(--wf-shadow-lg);
+}
+
+.wf-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--wf-border);
+}
+
+.wf-btn--secondary {
+  background: var(--wf-surface);
+  color: var(--wf-ink);
+}
+
+.wf-btn--forest {
+  background: var(--wf-forest);
+  color: #FFFFFF;
+}
+
+.wf-btn--gold {
+  background: var(--wf-gold);
+  color: var(--wf-forest);
+}
+
+.wf-btn--green {
+  background: var(--wf-green);
+  color: #FFFFFF;
+}
+
+.wf-btn--sm {
+  padding: 8px 16px;
+  font-size: 13.5px;
+  box-shadow: var(--wf-shadow-sm);
+}
+
+/* Badges & Tags */
+.mono-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--wf-f-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--wf-r-pill);
+  border: var(--wf-bw-thin) solid var(--wf-border);
+  background: var(--wf-surface);
+  color: var(--wf-ink);
+}
+
+.mono-tag--terra { background: var(--wf-terra-tint); color: var(--wf-terra-deep); }
+.mono-tag--green { background: var(--wf-green-tint); color: var(--wf-green-dark); }
+.mono-tag--gold { background: var(--wf-gold-tint); color: var(--wf-gold-dark); }
+.mono-tag--blue { background: var(--wf-blue-tint); color: var(--wf-pine); }
+
+/* Structural Cards */
+.wf-card {
+  background: var(--wf-surface);
+  border: var(--wf-bw) solid var(--wf-border);
+  border-radius: var(--wf-r-lg);
+  box-shadow: var(--wf-shadow);
+  padding: 24px;
+  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease);
+}
+
+.wf-card--interactive:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--wf-shadow-lg);
+}
+
+.wf-card--forest {
+  background: var(--wf-forest);
+  color: var(--wf-ink-inv);
+  border-color: var(--wf-forest);
+}
+
+/* Modals & Drawers */
+.wf-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 31, 81, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--wf-dur);
+}
+
+.wf-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wf-modal-dialog {
+  background: var(--wf-surface);
+  border: var(--wf-bw) solid var(--wf-border);
+  border-radius: var(--wf-r-xl);
+  box-shadow: var(--wf-shadow-lg);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.95) translateY(10px);
+  transition: transform var(--wf-dur) var(--wf-ease);
+}
+
+.wf-modal-backdrop.is-open .wf-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+/* Mobile Bottom Sheet Standard */
+@media (max-width: 680px) {
+  .wf-modal-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .wf-modal-dialog {
+    max-width: 100%;
+    border-bottom: none;
+    border-radius: var(--wf-r-xl) var(--wf-r-xl) 0 0;
+    box-shadow: 0 -4px 0 var(--wf-border);
+    transform: translateY(100%);
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  .wf-modal-backdrop.is-open .wf-modal-dialog {
+    transform: translateY(0);
+  }
+}
