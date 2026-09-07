@@ -171,7 +171,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     /* CLI Quick Install Terminal Box */
@@ -701,15 +701,15 @@
         </a>
       </div>
 
-      <!-- CLI Install & Fork Box -->
+      <!-- CLI Install & Fork Box (Direct GitHub / Degit Installation) -->
       <div class="cli-box">
         <div class="cli-box__header">
           <div class="cli-tabs">
-            <button class="cli-tab active" onclick="switchCliTab('npm')">npm</button>
+            <button class="cli-tab active" onclick="switchCliTab('degit')">npx degit (starter)</button>
+            <button class="cli-tab" onclick="switchCliTab('npm')">npm (github)</button>
             <button class="cli-tab" onclick="switchCliTab('pnpm')">pnpm</button>
             <button class="cli-tab" onclick="switchCliTab('yarn')">yarn</button>
             <button class="cli-tab" onclick="switchCliTab('bun')">bun</button>
-            <button class="cli-tab" onclick="switchCliTab('degit')">npx degit (fork)</button>
             <button class="cli-tab" onclick="switchCliTab('git')">git clone</button>
           </div>
           <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="copyCliCommand()">
@@ -718,7 +718,7 @@
         </div>
         <div class="cli-command-row">
           <span class="cli-prompt">$</span>
-          <code class="cli-cmd" id="cli-command-display">npm install @dmaven/design-system @phosphor-icons/react</code>
+          <code class="cli-cmd" id="cli-command-display">npx degit Aleemcode/dmds my-dmaven-app</code>
         </div>
       </div>
     </div>
@@ -1146,14 +1146,15 @@ export default function App() {
     };
 
     let activeExportTab = 'skill';
-    let activeCliTab = 'npm';
+    let activeCliTab = 'degit';
 
+    // Direct GitHub and Starter CLI commands (100% plug-and-play without NPM registry publishing)
     const cliCommands = {
-      npm: "npm install @dmaven/design-system @phosphor-icons/react",
-      pnpm: "pnpm add @dmaven/design-system @phosphor-icons/react",
-      yarn: "yarn add @dmaven/design-system @phosphor-icons/react",
-      bun: "bun add @dmaven/design-system @phosphor-icons/react",
       degit: "npx degit Aleemcode/dmds my-dmaven-app",
+      npm: "npm install github:Aleemcode/dmds",
+      pnpm: "pnpm add github:Aleemcode/dmds",
+      yarn: "yarn add github:Aleemcode/dmds",
+      bun: "bun add github:Aleemcode/dmds",
       git: "git clone https://github.com/Aleemcode/dmds.git"
     };
 
@@ -1409,7 +1410,16 @@ description: >-
 - Card Radius: \`${currentTheme.radius}\`
 - **Icon Standard**: Phosphor Icons (\`ph-bold\` / \`@phosphor-icons/react\`)
 
-## 2. Strict Guardrails
+## 2. Installation & Quickstart
+\`\`\`bash
+# Fork template / starter
+npx degit Aleemcode/dmds my-app
+
+# Or install package directly from GitHub
+npm install github:Aleemcode/dmds
+\`\`\`
+
+## 3. Strict Guardrails
 1. **Official Icons**: Exclusively use **Phosphor Icons** (weight: \`bold\` or \`regular\`). Never use emojis or mismatched icon sets.
 2. **Never use blurred shadows**: Use hard offset drop shadows (\`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`).
 3. **Never use pure #000000 black**: Always use customized brand ink (\`${currentTheme.ink}\`).
