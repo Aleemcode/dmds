@@ -244,3 +244,61 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ============================================================
+   FEEDBACK TOAST NOTIFICATION CARDS (SIGNATURE DMDS STANDARD)
+   ============================================================ */
+.wf-toast {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: var(--wf-bw) solid var(--wf-border);
+  border-radius: var(--wf-r-lg);
+  padding: 16px 20px;
+  box-shadow: var(--wf-shadow);
+  transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur);
+  background: var(--wf-surface);
+}
+
+.wf-toast__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--wf-f-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wf-toast__body {
+  font-family: var(--wf-f-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--wf-ink);
+}
+
+.wf-toast--success {
+  background: #E1F8EC;
+  border-color: var(--wf-border);
+}
+.wf-toast--success .wf-toast__meta { color: #006634; }
+
+.wf-toast--caution {
+  background: #FFF8E8;
+  border-color: var(--wf-border);
+}
+.wf-toast--caution .wf-toast__meta { color: #916100; }
+
+.wf-toast--error {
+  background: #FFEBE1;
+  border-color: var(--wf-border);
+}
+.wf-toast--error .wf-toast__meta { color: #9F1239; }
+
+.wf-toast--info {
+  background: #EEF4FF;
+  border-color: var(--wf-border);
+}
+.wf-toast--info .wf-toast__meta { color: #0A2D6E; }

@@ -394,23 +394,7 @@
     .wf-table th:last-child, .wf-table td:last-child { border-right: none; }
     .wf-table tr:last-child td { border-bottom: none; }
 
-    /* Callout Alert Banners */
-    .callout {
-      border: var(--wf-bw) solid var(--wf-border);
-      border-radius: var(--wf-r-lg);
-      padding: 18px 20px;
-      box-shadow: var(--wf-shadow-sm);
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      margin-bottom: 16px;
-    }
-    .callout--note { background: var(--wf-blue-tint); border-left: 8px solid var(--wf-blue); }
-    .callout--tip { background: var(--wf-green-tint); border-left: 8px solid var(--wf-green); }
-    .callout--warn { background: var(--wf-gold-tint); border-left: 8px solid var(--wf-gold-dark); }
-    .callout--danger { background: var(--wf-pink); border-left: 8px solid #E11D48; }
-
-    /* Toast Notification Element */
+    /* Toast Notification Container */
     .toast-container {
       position: fixed;
       bottom: 24px;
@@ -418,28 +402,18 @@
       z-index: 2000;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       pointer-events: none;
+      max-width: 420px;
+      width: 100%;
     }
-    .toast {
+    .toast-container .wf-toast {
       pointer-events: auto;
-      background: var(--wf-surface);
-      color: var(--wf-ink);
-      border: var(--wf-bw) solid var(--wf-border);
-      border-radius: var(--wf-r-pill);
-      padding: 12px 20px;
-      box-shadow: var(--wf-shadow);
-      font-family: var(--wf-f-disp);
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
       transform: translateY(100px);
       opacity: 0;
       transition: all 0.3s cubic-bezier(.2,.7,.3,1);
     }
-    .toast.show {
+    .toast-container .wf-toast.show {
       transform: translateY(0);
       opacity: 1;
     }
@@ -508,6 +482,7 @@
       }
       .wf-modal-handle { display: block; }
       .dmds-nav__links { display: none; }
+      .toast-container { right: 16px; left: 16px; bottom: 16px; max-width: none; }
     }
   </style>
 </head>
@@ -523,9 +498,9 @@
       <ul class="dmds-nav__links">
         <li><a href="#philosophy" class="dmds-nav__link">Genesis</a></li>
         <li><a href="#studio" class="dmds-nav__link">Theme Studio</a></li>
+        <li><a href="#toasts" class="dmds-nav__link">Feedback Toast</a></li>
         <li><a href="#components" class="dmds-nav__link">Components</a></li>
         <li><a href="#exporter" class="dmds-nav__link">Agent Skill</a></li>
-        <li><a href="#integration" class="dmds-nav__link">Tailwind / Radix</a></li>
       </ul>
       <div style="display: flex; align-items: center; gap: 10px;">
         <a href="https://github.com/Aleemcode/dmds" target="_blank" rel="noopener" class="wf-btn wf-btn--sm wf-btn--secondary">
@@ -606,7 +581,7 @@
       <div class="section-header">
         <span class="mono-tag mono-tag--terra section-header__tag">Interactive Studio</span>
         <h2 class="section-header__title">Live Theme Studio & Color Customizer</h2>
-        <p class="section-header__desc">Change colors, borders, and shadows below. The entire page and the downloadable AI agent skill will update in real time!</p>
+        <p class="section-header__desc">Change colors, borders, and shadows below. The entire page, toast cards, and the downloadable AI agent skill will update in real time!</p>
       </div>
 
       <div class="studio-grid">
@@ -717,20 +692,17 @@
           <div class="wf-card">
             <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">1. Tactile Buttons & Phosphor Icons</h3>
             <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
-              <button class="wf-btn" onclick="showToast('Primary CTA clicked!')">
-                <i class="ph-bold ph-lightning"></i> Primary Action
+              <button class="wf-btn" onclick="fireToast('success')">
+                <i class="ph-bold ph-check"></i> Trigger Success Toast
               </button>
-              <button class="wf-btn wf-btn--secondary" onclick="showToast('Secondary button clicked!')">
-                <i class="ph-bold ph-cube"></i> Secondary Surface
+              <button class="wf-btn wf-btn--gold" onclick="fireToast('caution')">
+                <i class="ph-bold ph-warning"></i> Trigger Caution Toast
               </button>
-              <button class="wf-btn wf-btn--forest" onclick="showToast('Forest button clicked!')">
-                <i class="ph-bold ph-layout"></i> Ink Navy
+              <button class="wf-btn wf-btn--forest" onclick="fireToast('error')">
+                <i class="ph-bold ph-x"></i> Trigger Error Toast
               </button>
-              <button class="wf-btn wf-btn--gold" onclick="showToast('Gold button clicked!')">
-                <i class="ph-bold ph-sparkle"></i> Warm Gold
-              </button>
-              <button class="wf-btn wf-btn--green" onclick="showToast('Green button clicked!')">
-                <i class="ph-bold ph-check-circle"></i> Emerald Growth
+              <button class="wf-btn wf-btn--secondary" onclick="fireToast('info')">
+                <i class="ph-bold ph-info"></i> Trigger Info Toast
               </button>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:10px;">
@@ -750,9 +722,6 @@
             <div style="display:flex; flex-wrap:wrap; gap:12px;">
               <button class="wf-btn wf-btn--forest" onclick="openModal()">
                 <i class="ph-bold ph-browsers"></i> Launch Interactive Modal / Drawer
-              </button>
-              <button class="wf-btn wf-btn--secondary" onclick="showToast('Tactile Toast fired!')">
-                <i class="ph-bold ph-bell-ringing"></i> Trigger Toast
               </button>
             </div>
           </div>
@@ -802,32 +771,86 @@
                   <td><span class="mono-tag mono-tag--terra">Verified</span></td>
                 </tr>
                 <tr>
-                  <td style="font-weight:700; font-family:var(--wf-f-disp);">Agent Skill Exporter</td>
+                  <td style="font-weight:700; font-family:var(--wf-f-disp);">Feedback Toast</td>
                   <td>Phosphor (ph-bold)</td>
-                  <td>Dynamic real-time compile</td>
+                  <td>Card with status header</td>
                   <td><span class="mono-tag mono-tag--blue">Active</span></td>
                 </tr>
               </tbody>
             </table>
-          </div>
-
-          <!-- Callouts -->
-          <div>
-            <div class="callout callout--tip">
-              <i class="ph-bold ph-lightbulb ph-lg" style="color:var(--wf-green-dark);"></i>
-              <div>
-                <strong style="font-family:var(--wf-f-disp); display:block; margin-bottom:2px;">Pro-Tip on Phosphor Icons</strong>
-                <span style="font-size:14px; color:var(--wf-ink-2);">Always pair with <code>ph-bold</code> weight or <code>@phosphor-icons/react</code> with weight="bold". The robust stroke width perfectly matches the 2.5px brutalist borders!</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Signature Feedback Toast & Callout Suite -->
+  <section class="section-wrap" id="toasts">
+    <div class="container">
+      <div class="section-header">
+        <span class="mono-tag mono-tag--green section-header__tag">Signature Feedback Component</span>
+        <h2 class="section-header__title">Feedback Toast Notification Cards</h2>
+        <p class="section-header__desc">High-contrast tactile toast notifications with monospace status headers, color code metadata, and clear conversational body copy.</p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:16px; max-width:820px;">
+        <!-- Success Card -->
+        <div class="wf-toast wf-toast--success">
+          <div class="wf-toast__meta">
+            <i class="ph-bold ph-check"></i>
+            <span>SUCCESS</span>
+            <span>·</span>
+            <span>#3F8F5F</span>
+          </div>
+          <p class="wf-toast__body">
+            Your app is live. Nice — that's a real thing on the internet now.
+          </p>
+        </div>
+
+        <!-- Caution Card -->
+        <div class="wf-toast wf-toast--caution">
+          <div class="wf-toast__meta">
+            <i class="ph-bold ph-warning"></i>
+            <span>CAUTION</span>
+            <span>·</span>
+            <span>#C9902E</span>
+          </div>
+          <p class="wf-toast__body">
+            Heads up: this recipe needs your API key added first.
+          </p>
+        </div>
+
+        <!-- Error Card -->
+        <div class="wf-toast wf-toast--error">
+          <div class="wf-toast__meta">
+            <i class="ph-bold ph-x"></i>
+            <span>ERROR</span>
+            <span>·</span>
+            <span>#C8452F</span>
+          </div>
+          <p class="wf-toast__body">
+            The build didn't run. Errors are conversations — here's the fix.
+          </p>
+        </div>
+
+        <!-- Info Card -->
+        <div class="wf-toast wf-toast--info">
+          <div class="wf-toast__meta">
+            <i class="ph-bold ph-info"></i>
+            <span>INFO</span>
+            <span>·</span>
+            <span>#3E7CA8</span>
+          </div>
+          <p class="wf-toast__body">
+            New tool version out. Your recipes still work — nothing to change.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Dynamic AI Agent Skill & Rules Exporter -->
-  <section class="section-wrap" id="exporter">
+  <section class="section-wrap section-wrap--wash" id="exporter">
     <div class="container">
       <div class="section-header">
         <span class="mono-tag mono-tag--green section-header__tag">Agentic Superpower</span>
@@ -859,7 +882,7 @@
   </section>
 
   <!-- Integration Guide -->
-  <section class="section-wrap section-wrap--wash" id="integration">
+  <section class="section-wrap" id="integration">
     <div class="container">
       <div class="section-header">
         <span class="mono-tag mono-tag--blue section-header__tag">Architecture</span>
@@ -885,7 +908,7 @@
           <p style="font-size:14.5px; color:var(--wf-ink-2); margin-bottom:16px;">
             Drop-in React components with unstyled Radix primitives for keyboard focus trapping, ARIA dialogs, and sheets wrapped in DMaven tokens.
           </p>
-          <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:12px; overflow-x:auto;">import { Button, Dialog, Drawer } from "@dmaven/design-system";
+          <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:12px; overflow-x:auto;">import { Button, Dialog, Drawer, Toast } from "@dmaven/design-system";
 import { Lightning } from "@phosphor-icons/react";
 
 export default function App() {
@@ -936,7 +959,7 @@ export default function App() {
       </p>
       <div style="display:flex; justify-content:flex-end; gap:10px;">
         <button class="wf-btn wf-btn--secondary wf-btn--sm" onclick="closeModal()">Dismiss</button>
-        <button class="wf-btn wf-btn--sm" onclick="showToast('Confirmed!'); closeModal();">Confirm Action</button>
+        <button class="wf-btn wf-btn--sm" onclick="fireToast('success'); closeModal();">Confirm Action</button>
       </div>
     </div>
   </div>
@@ -1066,8 +1089,9 @@ description: >-
 2. **Never use blurred shadows**: Use hard offset drop shadows (\`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`).
 3. **Never use pure #000000 black**: Always use customized brand ink (\`${currentTheme.ink}\`).
 4. **Mobile Bottom-Sheet Rule**: On mobile screens (<=680px), modals MUST dock to \`bottom: 0\` with drag handle and zero lateral drift.
-5. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
-6. **Minimum 44px Tap Targets**: Ensure touch-friendly controls across mobile devices.
+5. **Feedback Toast Standard**: Use \`.wf-toast\` cards with monospace status header (icon + variant name + hex metadata) and conversational body copy.
+6. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
+7. **Minimum 44px Tap Targets**: Ensure touch-friendly controls across mobile devices.
 `;
     }
 
@@ -1140,7 +1164,7 @@ module.exports = {
     function copyCurrentCode() {
       const code = document.getElementById('code-display').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        showToast('Code copied to clipboard!');
+        fireToast('success', 'Code copied to clipboard!', '#1BC67F');
       });
     }
 
@@ -1166,7 +1190,7 @@ module.exports = {
       a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
-      showToast(`Downloaded ${filename}!`);
+      fireToast('success', `Downloaded ${filename}!`, '#1BC67F');
     }
 
     function openModal() {
@@ -1176,17 +1200,57 @@ module.exports = {
       document.getElementById('demo-modal').classList.remove('is-open');
     }
 
-    function showToast(msg) {
+    function fireToast(type, customMsg, customCode) {
+      const toastConfigs = {
+        success: {
+          icon: 'ph-check',
+          title: 'SUCCESS',
+          code: customCode || '#3F8F5F',
+          body: customMsg || "Your app is live. Nice — that's a real thing on the internet now.",
+          cls: 'wf-toast--success'
+        },
+        caution: {
+          icon: 'ph-warning',
+          title: 'CAUTION',
+          code: customCode || '#C9902E',
+          body: customMsg || "Heads up: this recipe needs your API key added first.",
+          cls: 'wf-toast--caution'
+        },
+        error: {
+          icon: 'ph-x',
+          title: 'ERROR',
+          code: customCode || '#C8452F',
+          body: customMsg || "The build didn't run. Errors are conversations — here's the fix.",
+          cls: 'wf-toast--error'
+        },
+        info: {
+          icon: 'ph-info',
+          title: 'INFO',
+          code: customCode || '#3E7CA8',
+          body: customMsg || "New tool version out. Your recipes still work — nothing to change.",
+          cls: 'wf-toast--info'
+        }
+      };
+
+      const c = toastConfigs[type] || toastConfigs.success;
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
-      toast.className = 'toast';
-      toast.innerHTML = `<i class="ph-bold ph-check-circle" style="color:var(--wf-green);"></i> \${msg}`;
+      toast.className = `wf-toast ${c.cls}`;
+      toast.innerHTML = `
+        <div class="wf-toast__meta">
+          <i class="ph-bold ${c.icon}"></i>
+          <span>${c.title}</span>
+          <span>·</span>
+          <span>${c.code}</span>
+        </div>
+        <p class="wf-toast__body">${c.body}</p>
+      `;
       container.appendChild(toast);
       setTimeout(() => toast.classList.add('show'), 10);
       setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 300);
-      }, 3000);
+      }, 4000);
     }
 
     // Initial render
