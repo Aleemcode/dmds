@@ -295,7 +295,7 @@
     .preview-canvas {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 28px;
     }
     .demo-grid-2 {
       display: grid;
@@ -498,9 +498,8 @@
       <ul class="dmds-nav__links">
         <li><a href="#philosophy" class="dmds-nav__link">Genesis</a></li>
         <li><a href="#studio" class="dmds-nav__link">Theme Studio</a></li>
-        <li><a href="#toasts" class="dmds-nav__link">Feedback Toast</a></li>
-        <li><a href="#components" class="dmds-nav__link">Components</a></li>
         <li><a href="#exporter" class="dmds-nav__link">Agent Skill</a></li>
+        <li><a href="#integration" class="dmds-nav__link">Tailwind / Radix</a></li>
       </ul>
       <div style="display: flex; align-items: center; gap: 10px;">
         <a href="https://github.com/Aleemcode/dmds" target="_blank" rel="noopener" class="wf-btn wf-btn--sm wf-btn--secondary">
@@ -581,7 +580,7 @@
       <div class="section-header">
         <span class="mono-tag mono-tag--terra section-header__tag">Interactive Studio</span>
         <h2 class="section-header__title">Live Theme Studio & Color Customizer</h2>
-        <p class="section-header__desc">Change colors, borders, and shadows below. The entire page, toast cards, and the downloadable AI agent skill will update in real time!</p>
+        <p class="section-header__desc">Change colors, borders, and shadows below. The entire page, live feedback toasts, and downloadable AI agent skills update in real time!</p>
       </div>
 
       <div class="studio-grid">
@@ -688,21 +687,90 @@
 
         <!-- Live Preview Components -->
         <div class="preview-canvas" id="components">
+
+          <!-- SIGNATURE FEEDBACK TOAST NOTIFICATION CARDS -->
+          <div class="wf-card" style="background: var(--wf-surface); border: var(--wf-bw) solid var(--wf-border); border-radius: var(--wf-r-lg); box-shadow: var(--wf-shadow); padding: 24px;">
+            <div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <span class="mono-tag mono-tag--green"><i class="ph-bold ph-bell-ringing ph-sm"></i> Signature Feedback Component</span>
+              <span style="font-family: var(--wf-f-mono); font-size: 11px; color: var(--wf-muted); font-weight: 700;">LIVE STUDIO PREVIEW</span>
+            </div>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 24px; font-weight: 800; margin-bottom: 6px; letter-spacing: -0.02em;">
+              Feedback Toast Notification Cards
+            </h3>
+            <p style="font-size: 14.5px; color: var(--wf-ink-2); margin-bottom: 20px;">
+              High-contrast tactile toast notifications with monospace status headers, color code metadata, and clear conversational body copy.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <!-- Success Card -->
+              <div class="wf-toast wf-toast--success">
+                <div class="wf-toast__meta">
+                  <i class="ph-bold ph-check"></i>
+                  <span>SUCCESS</span>
+                  <span>·</span>
+                  <span id="toast-success-code">#3F8F5F</span>
+                </div>
+                <p class="wf-toast__body">
+                  Your app is live. Nice — that's a real thing on the internet now.
+                </p>
+              </div>
+
+              <!-- Caution Card -->
+              <div class="wf-toast wf-toast--caution">
+                <div class="wf-toast__meta">
+                  <i class="ph-bold ph-warning"></i>
+                  <span>CAUTION</span>
+                  <span>·</span>
+                  <span id="toast-caution-code">#C9902E</span>
+                </div>
+                <p class="wf-toast__body">
+                  Heads up: this recipe needs your API key added first.
+                </p>
+              </div>
+
+              <!-- Error Card -->
+              <div class="wf-toast wf-toast--error">
+                <div class="wf-toast__meta">
+                  <i class="ph-bold ph-x"></i>
+                  <span>ERROR</span>
+                  <span>·</span>
+                  <span id="toast-error-code">#C8452F</span>
+                </div>
+                <p class="wf-toast__body">
+                  The build didn't run. Errors are conversations — here's the fix.
+                </p>
+              </div>
+
+              <!-- Info Card -->
+              <div class="wf-toast wf-toast--info">
+                <div class="wf-toast__meta">
+                  <i class="ph-bold ph-info"></i>
+                  <span>INFO</span>
+                  <span>·</span>
+                  <span id="toast-info-code">#3E7CA8</span>
+                </div>
+                <p class="wf-toast__body">
+                  New tool version out. Your recipes still work — nothing to change.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <!-- Buttons & Badges -->
           <div class="wf-card">
-            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">1. Tactile Buttons & Phosphor Icons</h3>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">Tactile Buttons & Interactive Triggers</h3>
             <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
               <button class="wf-btn" onclick="fireToast('success')">
-                <i class="ph-bold ph-check"></i> Trigger Success Toast
+                <i class="ph-bold ph-check"></i> Fire Live Success Toast
               </button>
               <button class="wf-btn wf-btn--gold" onclick="fireToast('caution')">
-                <i class="ph-bold ph-warning"></i> Trigger Caution Toast
+                <i class="ph-bold ph-warning"></i> Fire Live Caution Toast
               </button>
               <button class="wf-btn wf-btn--forest" onclick="fireToast('error')">
-                <i class="ph-bold ph-x"></i> Trigger Error Toast
+                <i class="ph-bold ph-x"></i> Fire Live Error Toast
               </button>
               <button class="wf-btn wf-btn--secondary" onclick="fireToast('info')">
-                <i class="ph-bold ph-info"></i> Trigger Info Toast
+                <i class="ph-bold ph-info"></i> Fire Live Info Toast
               </button>
             </div>
             <div style="display:flex; flex-wrap:wrap; gap:10px;">
@@ -715,7 +783,7 @@
 
           <!-- Modals & Drawers Trigger -->
           <div class="wf-card">
-            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">2. Modals & Mobile Bottom-Sheet Drawer</h3>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">Modals & Mobile Bottom-Sheet Drawer</h3>
             <p style="font-size: 14.5px; color: var(--wf-ink-2); margin-bottom: 16px;">
               Automatically adapts between centered dialog on desktop and full bottom-sheet on mobile devices (&le;680px) with tactile drag handle.
             </p>
@@ -728,7 +796,7 @@
 
           <!-- Form Controls -->
           <div class="wf-card">
-            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">3. Form Controls & High-Contrast Inputs</h3>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">Form Controls & High-Contrast Inputs</h3>
             <div class="demo-grid-2">
               <div>
                 <label style="font-family:var(--wf-f-disp); font-size:13px; font-weight:700; margin-bottom:6px; display:block;">Full Name</label>
@@ -747,7 +815,7 @@
 
           <!-- Brutalist Data Table -->
           <div class="wf-card" style="overflow-x:auto;">
-            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">4. Brutalist Data Table</h3>
+            <h3 style="font-family: var(--wf-f-disp); font-size: 18px; font-weight: 800; margin-bottom: 16px;">Brutalist Data Table</h3>
             <table class="wf-table">
               <thead>
                 <tr>
@@ -758,6 +826,12 @@
                 </tr>
               </thead>
               <tbody>
+                <tr>
+                  <td style="font-weight:700; font-family:var(--wf-f-disp);">Feedback Toast</td>
+                  <td>Phosphor (ph-bold)</td>
+                  <td>Monospace metadata &middot; conversational body</td>
+                  <td><span class="mono-tag mono-tag--green">Canonical</span></td>
+                </tr>
                 <tr>
                   <td style="font-weight:700; font-family:var(--wf-f-disp);">Tactile Button</td>
                   <td>Phosphor (ph-bold)</td>
@@ -770,12 +844,6 @@
                   <td>Bottom-docked &middot; zero drift</td>
                   <td><span class="mono-tag mono-tag--terra">Verified</span></td>
                 </tr>
-                <tr>
-                  <td style="font-weight:700; font-family:var(--wf-f-disp);">Feedback Toast</td>
-                  <td>Phosphor (ph-bold)</td>
-                  <td>Card with status header</td>
-                  <td><span class="mono-tag mono-tag--blue">Active</span></td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -784,73 +852,8 @@
     </div>
   </section>
 
-  <!-- Signature Feedback Toast & Callout Suite -->
-  <section class="section-wrap" id="toasts">
-    <div class="container">
-      <div class="section-header">
-        <span class="mono-tag mono-tag--green section-header__tag">Signature Feedback Component</span>
-        <h2 class="section-header__title">Feedback Toast Notification Cards</h2>
-        <p class="section-header__desc">High-contrast tactile toast notifications with monospace status headers, color code metadata, and clear conversational body copy.</p>
-      </div>
-
-      <div style="display:flex; flex-direction:column; gap:16px; max-width:820px;">
-        <!-- Success Card -->
-        <div class="wf-toast wf-toast--success">
-          <div class="wf-toast__meta">
-            <i class="ph-bold ph-check"></i>
-            <span>SUCCESS</span>
-            <span>·</span>
-            <span>#3F8F5F</span>
-          </div>
-          <p class="wf-toast__body">
-            Your app is live. Nice — that's a real thing on the internet now.
-          </p>
-        </div>
-
-        <!-- Caution Card -->
-        <div class="wf-toast wf-toast--caution">
-          <div class="wf-toast__meta">
-            <i class="ph-bold ph-warning"></i>
-            <span>CAUTION</span>
-            <span>·</span>
-            <span>#C9902E</span>
-          </div>
-          <p class="wf-toast__body">
-            Heads up: this recipe needs your API key added first.
-          </p>
-        </div>
-
-        <!-- Error Card -->
-        <div class="wf-toast wf-toast--error">
-          <div class="wf-toast__meta">
-            <i class="ph-bold ph-x"></i>
-            <span>ERROR</span>
-            <span>·</span>
-            <span>#C8452F</span>
-          </div>
-          <p class="wf-toast__body">
-            The build didn't run. Errors are conversations — here's the fix.
-          </p>
-        </div>
-
-        <!-- Info Card -->
-        <div class="wf-toast wf-toast--info">
-          <div class="wf-toast__meta">
-            <i class="ph-bold ph-info"></i>
-            <span>INFO</span>
-            <span>·</span>
-            <span>#3E7CA8</span>
-          </div>
-          <p class="wf-toast__body">
-            New tool version out. Your recipes still work — nothing to change.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Dynamic AI Agent Skill & Rules Exporter -->
-  <section class="section-wrap section-wrap--wash" id="exporter">
+  <section class="section-wrap" id="exporter">
     <div class="container">
       <div class="section-header">
         <span class="mono-tag mono-tag--green section-header__tag">Agentic Superpower</span>
@@ -882,7 +885,7 @@
   </section>
 
   <!-- Integration Guide -->
-  <section class="section-wrap" id="integration">
+  <section class="section-wrap section-wrap--wash" id="integration">
     <div class="container">
       <div class="section-header">
         <span class="mono-tag mono-tag--blue section-header__tag">Architecture</span>
@@ -1026,6 +1029,7 @@ export default function App() {
         currentTheme.shadow = val + 'px';
       } else if (type === 'radius') {
         document.documentElement.style.setProperty('--wf-r-lg', val + 'px');
+        document.documentElement.style.setProperty('--wf-r-md', (val > 12 ? val - 4 : val) + 'px');
         document.getElementById('label-radius').innerText = val + 'px';
         currentTheme.radius = val + 'px';
       }
