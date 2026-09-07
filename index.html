@@ -163,7 +163,7 @@
       line-height: 1.55;
       color: var(--wf-ink-2);
       max-width: 820px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       text-wrap: pretty;
     }
     .hero__actions {
@@ -171,6 +171,72 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    /* CLI Quick Install Terminal Box */
+    .cli-box {
+      background: var(--wf-forest);
+      border: var(--wf-bw) solid var(--wf-border);
+      border-radius: var(--wf-r-lg);
+      padding: 16px;
+      box-shadow: var(--wf-shadow);
+      max-width: 680px;
+      color: var(--wf-ink-inv);
+    }
+    .cli-box__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 12px;
+    }
+    .cli-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .cli-tab {
+      font-family: var(--wf-f-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--wf-r-pill);
+      background: rgba(255,255,255,0.1);
+      color: var(--wf-ink-inv);
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .cli-tab.active {
+      background: var(--wf-terra);
+      color: #FFFFFF;
+      border-color: var(--wf-terra);
+    }
+    .cli-command-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #001230;
+      padding: 10px 14px;
+      border-radius: var(--wf-r-sm);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow-x: auto;
+      font-family: var(--wf-f-mono);
+      font-size: 13px;
+    }
+    .cli-prompt {
+      color: var(--wf-terra);
+      font-weight: 700;
+      user-select: none;
+    }
+    .cli-cmd {
+      color: #E2E8F0;
+      white-space: nowrap;
+      user-select: all;
     }
 
     /* Section Wrappers */
@@ -634,6 +700,27 @@
           Export AI Skill & Rules
         </a>
       </div>
+
+      <!-- CLI Install & Fork Box -->
+      <div class="cli-box">
+        <div class="cli-box__header">
+          <div class="cli-tabs">
+            <button class="cli-tab active" onclick="switchCliTab('npm')">npm</button>
+            <button class="cli-tab" onclick="switchCliTab('pnpm')">pnpm</button>
+            <button class="cli-tab" onclick="switchCliTab('yarn')">yarn</button>
+            <button class="cli-tab" onclick="switchCliTab('bun')">bun</button>
+            <button class="cli-tab" onclick="switchCliTab('degit')">npx degit (fork)</button>
+            <button class="cli-tab" onclick="switchCliTab('git')">git clone</button>
+          </div>
+          <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="copyCliCommand()">
+            <i class="ph-bold ph-copy ph-sm"></i> Copy
+          </button>
+        </div>
+        <div class="cli-command-row">
+          <span class="cli-prompt">$</span>
+          <code class="cli-cmd" id="cli-command-display">npm install @dmaven/design-system @phosphor-icons/react</code>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -1059,6 +1146,30 @@ export default function App() {
     };
 
     let activeExportTab = 'skill';
+    let activeCliTab = 'npm';
+
+    const cliCommands = {
+      npm: "npm install @dmaven/design-system @phosphor-icons/react",
+      pnpm: "pnpm add @dmaven/design-system @phosphor-icons/react",
+      yarn: "yarn add @dmaven/design-system @phosphor-icons/react",
+      bun: "bun add @dmaven/design-system @phosphor-icons/react",
+      degit: "npx degit Aleemcode/dmds my-dmaven-app",
+      git: "git clone https://github.com/Aleemcode/dmds.git"
+    };
+
+    function switchCliTab(tab) {
+      activeCliTab = tab;
+      document.querySelectorAll('.cli-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('cli-command-display').innerText = cliCommands[tab];
+    }
+
+    function copyCliCommand() {
+      const cmd = document.getElementById('cli-command-display').innerText;
+      navigator.clipboard.writeText(cmd).then(() => {
+        fireToast('success', 'CLI command copied to clipboard!', '#1BC67F');
+      });
+    }
 
     // 10 Rich Curated Presets
     const presets = {
