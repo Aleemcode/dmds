@@ -1,5 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "cleanUrls": true,
+  "framework": null,
+  "buildCommand": null,
+  "installCommand": "echo 'Deploying static site'",
+  "outputDirectory": "."
 }
