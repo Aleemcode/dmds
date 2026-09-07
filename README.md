@@ -29,13 +29,13 @@ Most brutalist systems feel punishingly cold and aggressive, while modern corpor
 
 ## 📦 Quickstart
 
-### 1. Install via Starter Template or Direct GitHub
+### 1. Install via NPM / Starter Template
 ```bash
-# Option A: Instant Starter Kit (Recommended)
-npx degit Aleemcode/dmds my-app
+# Option A: Install from NPM Registry (Published)
+npm install @designmaven/design-system @phosphor-icons/react
 
-# Option B: Direct GitHub dependency
-npm install github:Aleemcode/dmds @phosphor-icons/react
+# Option B: Instant Starter Kit (Recommended)
+npx degit Aleemcode/dmds my-app
 
 # Option C: Git clone
 git clone https://github.com/Aleemcode/dmds.git
@@ -45,14 +45,14 @@ git clone https://github.com/Aleemcode/dmds.git
 In your `tailwind.config.js`:
 ```javascript
 module.exports = {
-  presets: [require("@dmaven/design-system/preset")],
+  presets: [require("@designmaven/design-system/preset")],
   content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
 };
 ```
 
 ### 3. Use React + Radix Primitives
 ```tsx
-import { Button, Card, Badge, Dialog } from "@dmaven/design-system";
+import { Button, Card, Badge, Dialog } from "@designmaven/design-system";
 
 export default function App() {
   return (

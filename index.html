@@ -728,15 +728,15 @@
         </a>
       </div>
 
-      <!-- CLI Install & Fork Box (Direct GitHub / Degit Installation) -->
+      <!-- CLI Install & Fork Box (NPM / Degit / Git) -->
       <div class="cli-box">
         <div class="cli-box__header">
           <div class="cli-tabs">
-            <button class="cli-tab active" onclick="switchCliTab('degit')">npx degit (starter)</button>
-            <button class="cli-tab" onclick="switchCliTab('npm')">npm (github)</button>
+            <button class="cli-tab active" onclick="switchCliTab('npm')">npm install</button>
             <button class="cli-tab" onclick="switchCliTab('pnpm')">pnpm</button>
             <button class="cli-tab" onclick="switchCliTab('yarn')">yarn</button>
             <button class="cli-tab" onclick="switchCliTab('bun')">bun</button>
+            <button class="cli-tab" onclick="switchCliTab('degit')">npx degit</button>
             <button class="cli-tab" onclick="switchCliTab('git')">git clone</button>
           </div>
           <button class="wf-btn wf-btn--sm wf-btn--gold" onclick="copyCliCommand()">
@@ -745,7 +745,7 @@
         </div>
         <div class="cli-command-row">
           <span class="cli-prompt">$</span>
-          <code class="cli-cmd" id="cli-command-display">npx degit Aleemcode/dmds my-dmaven-app</code>
+          <code class="cli-cmd" id="cli-command-display">npm install @designmaven/design-system @phosphor-icons/react</code>
         </div>
       </div>
     </div>
@@ -1099,7 +1099,7 @@
           <p style="font-size:14px; color:var(--wf-ink-2); margin-bottom:14px;">
             Drop-in React components with unstyled Radix primitives for keyboard focus trapping, ARIA dialogs, and sheets wrapped in DMaven tokens.
           </p>
-          <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:11.5px; overflow-x:auto;">import { Button, Dialog, Drawer, Toast } from "@dmaven/design-system";
+          <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:11.5px; overflow-x:auto;">import { Button, Dialog, Drawer, Toast } from "@designmaven/design-system";
 import { Lightning } from "@phosphor-icons/react";
 
 export default function App() {
@@ -1173,15 +1173,15 @@ export default function App() {
     };
 
     let activeExportTab = 'skill';
-    let activeCliTab = 'degit';
+    let activeCliTab = 'npm';
 
-    // Direct GitHub and Starter CLI commands (100% plug-and-play without NPM registry publishing)
+    // NPM registry, direct GitHub, and Starter CLI commands
     const cliCommands = {
+      npm: "npm install @designmaven/design-system @phosphor-icons/react",
+      pnpm: "pnpm add @designmaven/design-system @phosphor-icons/react",
+      yarn: "yarn add @designmaven/design-system @phosphor-icons/react",
+      bun: "bun add @designmaven/design-system @phosphor-icons/react",
       degit: "npx degit Aleemcode/dmds my-dmaven-app",
-      npm: "npm install github:Aleemcode/dmds",
-      pnpm: "pnpm add github:Aleemcode/dmds",
-      yarn: "yarn add github:Aleemcode/dmds",
-      bun: "bun add github:Aleemcode/dmds",
       git: "git clone https://github.com/Aleemcode/dmds.git"
     };
 

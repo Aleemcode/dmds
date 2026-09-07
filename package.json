@@ -1,5 +1,5 @@
 {
-  "name": "@dmaven/design-system",
+  "name": "@designmaven/design-system",
   "version": "1.0.0",
   "description": "DMaven Design System (Warm Fusion) — Neo-Brutalist structure meets Swiss warmth for multi-color brands. Includes Tailwind presets, Radix primitives, Phosphor Icons, and AI agent skills.",
   "main": "dmaven.preset.js",
