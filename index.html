@@ -1435,41 +1435,154 @@ export default function App() {
       return `---
 name: dmaven-warm-fusion
 description: >-
-  Rules and component guidelines for DMaven Design System (Warm Fusion).
-  Neo-Brutalist structure meets Swiss warmth with Phosphor Icons for multi-color brand systems.
+  Comprehensive guide and design system rules for DMaven Design System (Warm Fusion).
+  Combines Neo-Brutalist tactile physics with Swiss typographic warmth for rich multi-color brands.
+  Includes 12-step Radix semantic color tokens, Tailwind CSS presets, complete React + Radix UI component library, Phosphor Icons, and strict guardrails.
 ---
 
-# DMaven Design System · Warm Fusion Custom Skill
+# DMaven Design System · Warm Fusion (\`dmaven-warm-fusion\`)
 
-## 1. Design Genesis & Core Tokens
-- Ground / Canvas: \`${currentTheme.ground}\`
-- Pure Surface: \`${currentTheme.surface}\`
-- Ink & Structural Border: \`${currentTheme.ink}\`
-- Primary CTA Accent: \`${currentTheme.terra}\`
-- Secondary / Growth: \`${currentTheme.green}\`
-- Tertiary / Gold: \`${currentTheme.gold}\`
+The **DMaven Design System** is an intentional design language born from the fusion of **Neo-Brutalist structural physics** and **Swiss typographic warmth**, engineered specifically for expressive, multi-color brand identities.
+
+---
+
+## 1. Design Genesis & Semantic Radix Tokens
+- Ground / Canvas: \`${currentTheme.ground}\` (mapped to \`var(--sand-2)\`)
+- Pure Surface: \`${currentTheme.surface}\` (mapped to \`var(--sand-1)\` / \`#FFFFFF\`)
+- Ink & Structural Border: \`${currentTheme.ink}\` (mapped to \`var(--slate-12)\`)
+- Primary CTA Accent: \`${currentTheme.terra}\` (mapped to \`var(--orange-9)\`)
+- Secondary / Growth: \`${currentTheme.green}\` (mapped to \`var(--grass-9)\`)
+- Tertiary / Gold: \`${currentTheme.gold}\` (mapped to \`var(--amber-9)\`)
 - Structural Border Width: \`${currentTheme.bw}\`
 - Hard Drop Shadow: \`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`
 - Card Radius: \`${currentTheme.radius}\`
-- **Icon Standard**: Phosphor Icons (\`ph-bold\` / \`@phosphor-icons/react\`)
+- **Icon Standard**: Phosphor Icons (\`ph-bold\` / \`@phosphor-icons/react\` with \`weight="bold"\`)
 
-## 2. Installation & Quickstart
+---
+
+## 2. Quickstart Installation
 \`\`\`bash
-# Fork template / starter
-npx degit Aleemcode/dmds my-app
+# NPM Package (Published)
+npm install @designmaven/design-system @phosphor-icons/react
 
-# Or install package directly from GitHub
-npm install github:Aleemcode/dmds
+# Starter Template
+npx degit Aleemcode/dmds my-app
 \`\`\`
 
-## 3. Strict Guardrails
+---
+
+## 3. Complete React + Radix UI Component Library
+
+### Component 1: \`Button\`
+Tactile physical button with zero text wrapping, brutalist borders, and click offset physics.
+\`\`\`tsx
+import { Button } from "@designmaven/design-system";
+import { Sparkle, ArrowRight } from "@phosphor-icons/react";
+
+<Button variant="primary" size="md">
+  <Sparkle weight="bold" /> Start Assessment <ArrowRight weight="bold" />
+</Button>
+<Button variant="secondary">Cancel</Button>
+<Button variant="danger">Delete Workspace</Button>
+\`\`\`
+
+### Component 2: \`Card\`
+Tactile card with hard drop shadow and optional hover lift micro-interaction.
+\`\`\`tsx
+import { Card, Badge } from "@designmaven/design-system";
+
+<Card variant="surface" interactive>
+  <Badge variant="terra">Active Batch</Badge>
+  <h3 className="font-display font-bold text-lg text-ink mt-2">Tactile Card Container</h3>
+  <p className="font-body text-sm text-ink-2 mt-1">Swiss warmth fused with crisp structural boundaries.</p>
+</Card>
+\`\`\`
+
+### Component 3: \`Badge\` / \`Tag\`
+High-contrast monospace pill tag for categories, status badges, and metadata.
+\`\`\`tsx
+import { Badge } from "@designmaven/design-system";
+import { CheckCircle } from "@phosphor-icons/react";
+
+<Badge variant="terra">New Release</Badge>
+<Badge variant="green"><CheckCircle weight="bold" /> 100% Verified</Badge>
+<Badge variant="gold">Premium</Badge>
+<Badge variant="neutral">Draft</Badge>
+\`\`\`
+
+### Component 4: \`Dialog\` / \`Modal\` & \`Drawer\`
+Centered dialog on desktop with hard 8px shadow; docks automatically to the bottom edge with a drag handle on mobile viewports (<=680px).
+\`\`\`tsx
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, Button } from "@designmaven/design-system";
+
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="primary">Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Adaptive Modal & Drawer</DialogTitle>
+      <DialogDescription>
+        Renders as a floating centered modal on desktop and docks seamlessly as a tactile bottom sheet on mobile screens.
+      </DialogDescription>
+    </DialogHeader>
+    <div className="flex justify-end gap-2 mt-4">
+      <Button variant="secondary">Dismiss</Button>
+      <Button variant="primary">Confirm Action</Button>
+    </div>
+  </DialogContent>
+</Dialog>
+\`\`\`
+
+### Component 5: \`Toast\` (Signature Feedback Notification)
+Monospace status pill header with clear colored indicator and conversational copy.
+\`\`\`tsx
+import { Toast, useToast } from "@designmaven/design-system";
+
+const { toast } = useToast();
+
+// Success
+toast({
+  type: "success", // Header: "✓ SUCCESS · #1BC67F"
+  title: "Profile updated successfully!",
+  description: "Your brand tokens have been synchronized across all views."
+});
+
+// Error
+toast({
+  type: "error", // Header: "× ERROR · #E11D48"
+  title: "Connection timeout",
+  description: "Could not reach the database. Please check your credentials."
+});
+\`\`\`
+
+### Component 6: \`Input\`, \`Select\`, \`Textarea\`
+Tactile input controls with generous padding, right-aligned dropdown chevrons, and high-contrast focus rings.
+\`\`\`tsx
+import { Input, Select, Textarea } from "@designmaven/design-system";
+
+<Input label="Workspace Name" placeholder="e.g. BrilliantRoots Production" />
+<Select label="Color Preset" options={[{ label: "Warm Fusion", value: "classic" }]} />
+<Textarea label="Custom Guardrails" rows={4} />
+\`\`\`
+
+### Component 7: \`Tabs\`, \`Accordion\`, \`Switch\`
+Accessible Radix primitives styled with tactile DMaven borders and active pill states.
+\`\`\`tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent, Accordion, Switch } from "@designmaven/design-system";
+\`\`\`
+
+---
+
+## 4. Strict Guardrails
 1. **Official Icons**: Exclusively use **Phosphor Icons** (weight: \`bold\` or \`regular\`). Never use emojis or mismatched icon sets.
 2. **Never use blurred shadows**: Use hard offset drop shadows (\`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`).
 3. **Never use pure #000000 black**: Always use customized brand ink (\`${currentTheme.ink}\`).
-4. **Mobile Bottom-Sheet Rule**: On mobile screens (<=680px), modals MUST dock to \`bottom: 0\` with drag handle and zero lateral drift.
-5. **Feedback Toast Standard**: Use \`.wf-toast\` cards with monospace status header (icon + variant name + hex metadata) and conversational body copy.
-6. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
-7. **Minimum 44px Tap Targets**: Ensure touch-friendly controls across mobile devices.
+4. **Button Wrapping**: Always enforce \`white-space: nowrap !important;\` on buttons. Text must never break into two lines inside a button.
+5. **Mobile Bottom-Sheet Rule**: On mobile screens (<=680px), modals MUST dock to \`bottom: 0\` with drag handle and zero lateral drift.
+6. **Feedback Toast Standard**: Use \`.wf-toast\` cards with monospace status header (icon + variant name + hex metadata) and conversational body copy.
+7. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
+8. **Minimum 44px Tap Targets**: Ensure touch-friendly controls across mobile devices.
 `;
     }
 

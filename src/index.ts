@@ -7,3 +7,4 @@ export * from "./components/Input";
 export * from "./components/Tabs";
 export * from "./components/Accordion";
 export * from "./components/Switch";
+export * from "./components/Toast";
