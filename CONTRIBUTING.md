@@ -51,7 +51,7 @@ When creating or enhancing a component in `src/components/`:
    ```bash
    git push origin feat/your-component-name
    ```
-3. Open a Pull Request against the `main` branch of `https://github.com/Aleemcode/dmds`.
+3. Open a Pull Request against the `main` branch of `https://github.com/Aleemcode/warm-fusion`.
 4. Fill out the PR template checklist.
 
 ---

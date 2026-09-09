@@ -35,10 +35,10 @@ Most brutalist systems feel punishingly cold and aggressive, while modern corpor
 npm install @designmaven/design-system @phosphor-icons/react
 
 # Option B: Instant Starter Kit (Recommended)
-npx degit Aleemcode/dmds my-app
+npx degit Aleemcode/warm-fusion my-app
 
 # Option C: Git clone
-git clone https://github.com/Aleemcode/dmds.git
+git clone https://github.com/Aleemcode/warm-fusion.git
 ```
 
 ### 2. Add Tailwind Preset

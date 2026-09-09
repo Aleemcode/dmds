@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aleemcode/dmds.git"
+    "url": "git+https://github.com/Aleemcode/warm-fusion.git"
   },
   "keywords": [
     "design-system",
@@ -28,9 +28,9 @@
   "author": "Aleem Akinyoola <aleem@dmaven.design>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Aleemcode/dmds/issues"
+    "url": "https://github.com/Aleemcode/warm-fusion/issues"
   },
-  "homepage": "https://github.com/Aleemcode/dmds#readme",
+  "homepage": "https://github.com/Aleemcode/warm-fusion#readme",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
