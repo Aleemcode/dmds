@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Warm Fusion Design System · By Design Maven Studio</title>
-  <meta name="description" content="The Neo-Brutalist structure of crisp tactile physics, fused with the organic warmth of Swiss design and 12-step Radix semantic tokens. Built for multi-color brand identities." />
+  <meta name="description" content="Design Maven's design system that tones down the harshness of neo-brutalism with warm colors, mild corner radius, controllable tactile physics, and 12-step Radix semantic tokens." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Warm Fusion Design System · By Design Maven Studio" />
-  <meta property="og:description" content="Neo-Brutalist physics fused with Swiss typographic warmth and Radix color semantics." />
+  <meta property="og:description" content="Neo-Brutalist tactile physics fused with Swiss typographic warmth and 12-step Radix color semantics." />
   <meta property="og:type" content="website" />
 
   <!-- Google & Web Fonts -->
@@ -19,9 +19,6 @@
   <!-- Official Icon Family: Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <!-- External Canonical Tokens Link -->
-  <link rel="stylesheet" href="src/styles/tokens.css" />
-
   <style>
     /* ============================================================
        WARM FUSION CANONICAL TOKENS (12-STEP RADIX + TACTILE PHYSICS)
@@ -31,8 +28,8 @@
 
       /* — Radix 12-Step Neutral Scales (Light) — */
       --sand-1: #FDFDFC;
-      --sand-2: #F9F6F0;  /* Canonical Ground */
-      --sand-3: #F1ECE0;  /* Canonical Wash */
+      --sand-2: #F9F6F0;  /* Ground */
+      --sand-3: #F1ECE0;  /* Wash / Raised ground */
       --sand-4: #EAE5D9;
       --sand-5: #E1DBD0;
       --sand-6: #D5CFC3;
@@ -40,7 +37,7 @@
       --sand-8: #ABA291;
       --sand-9: #8D8472;
       --sand-10: #807765;
-      --sand-11: #5E5646; /* Muted label text */
+      --sand-11: #5E5646; /* Muted text */
       --sand-12: #211D15;
 
       --slate-1: #FBFCFD;
@@ -54,14 +51,14 @@
       --slate-9: #889096;
       --slate-10: #7E868C;
       --slate-11: #27456D; /* Secondary Ink */
-      --slate-12: #001F51; /* DMaven High-Contrast Ink & 2.5px Border */
+      --slate-12: #001F51; /* DMaven High-Contrast Ink & Border */
 
       /* — Radix 12-Step Brand Accent Scales — */
       --orange-9: #FB5707; /* Canonical Terra CTA */
       --orange-10: #D44200; /* Active Press */
       --orange-3: #FFF0EA;  /* Computed Alpha Tint */
 
-      --grass-9: #1BC67F;  /* Canonical Emerald Growth */
+      --grass-9: #1BC67F;  /* Canonical Emerald */
       --grass-11: #006634; /* Dark Emerald */
       --grass-3: #E8F9F1;  /* Growth Tint */
 
@@ -75,7 +72,7 @@
       --crimson-9: #E11D48; /* Canonical Danger */
       --crimson-3: #FFEBE1; /* Danger Tint */
 
-      /* — Semantic Warm Fusion Aliases — */
+      /* — Semantic Aliases — */
       --wf-ground: var(--sand-2);
       --wf-ground-2: var(--sand-3);
       --wf-surface: #FFFFFF;
@@ -106,15 +103,15 @@
       --wf-danger: var(--crimson-9);
       --wf-danger-tint: var(--crimson-3);
 
-      /* — Brutalist Structural Bone — */
+      /* — Tactile Brutalist Physics — */
       --wf-border: var(--slate-12);
       --wf-bw: 2.5px;
-      --wf-bw-thin: 2px;
+      --wf-bw-thin: 1.5px;
       --wf-shadow: 5px 5px 0 var(--wf-border);
       --wf-shadow-sm: 3px 3px 0 var(--wf-border);
       --wf-shadow-lg: 8px 8px 0 var(--wf-border);
 
-      /* — Swiss Typographic Warmth Radii — */
+      /* — Swiss Warmth Radii — */
       --wf-r-xl: 22px; 
       --wf-r-lg: 16px; 
       --wf-r-md: 12px; 
@@ -127,40 +124,40 @@
       --wf-f-mono: "Space Mono", ui-monospace, Menlo, monospace;
       --wf-f-ar: "Amiri", serif;
 
-      /* — Motion & Physics — */
+      /* — Transitions — */
       --wf-dur: 200ms;
       --wf-dur-fast: 120ms;
       --wf-ease: cubic-bezier(.2,.7,.3,1);
     }
 
-    /* Dark Mode Inverse */
+    /* Soft Ambiance Dark Mode (Retains Warm Ambiance with Soft Luminous Alpha Borders) */
     .dark, [data-theme="dark"] {
       color-scheme: dark;
-      --sand-1: #111110;
-      --sand-2: #18191B;
-      --sand-3: #222326;
-      --sand-11: #B4B4AD;
-      --sand-12: #EEEEEC;
 
-      --slate-1: #111315;
-      --slate-2: #15191C;
-      --slate-3: #1D2328;
-      --slate-11: #9BA1A6;
-      --slate-12: #ECEDEE;
+      --wf-ground: #0F1117;
+      --wf-ground-2: #171B22;
+      --wf-surface: #1E232E;
 
-      --wf-ground: #0D1117;
-      --wf-ground-2: #161B22;
-      --wf-surface: #1A1F2C;
-      --wf-border: #ECEDEE;
-      --wf-ink: #ECEDEE;
-      --wf-ink-2: #9BA1A6;
-      --wf-muted: #8B949E;
-      --wf-shadow: 5px 5px 0 #ECEDEE;
-      --wf-shadow-sm: 3px 3px 0 #ECEDEE;
-      --wf-shadow-lg: 8px 8px 0 #ECEDEE;
+      /* Soft Luminous Alpha Border: Eliminates harsh white neo-brutalist aggressiveness */
+      --wf-border: rgba(255, 255, 255, 0.16);
+      --wf-ink: #F5F2EB;       /* Warm Swiss cream text */
+      --wf-ink-2: #A8B1BE;     /* Soft slate text */
+      --wf-muted: #768090;
+
+      /* Ambient Warm Shadows in Dark Mode */
+      --wf-shadow: 4px 4px 0 rgba(0, 0, 0, 0.45);
+      --wf-shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.45);
+      --wf-shadow-lg: 7px 7px 0 rgba(0, 0, 0, 0.55);
+
+      /* Glowing Alpha Tints in Dark Mode */
+      --wf-terra-tint: rgba(251, 87, 7, 0.18);
+      --wf-green-tint: rgba(27, 198, 127, 0.18);
+      --wf-gold-tint: rgba(255, 203, 102, 0.18);
+      --wf-blue-tint: rgba(59, 134, 254, 0.18);
+      --wf-danger-tint: rgba(225, 29, 72, 0.18);
     }
 
-    /* Global Reset */
+    /* Reset & Base Rules */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -181,6 +178,7 @@
       overflow-x: hidden;
       width: 100%;
       min-width: 320px;
+      transition: background var(--wf-dur), color var(--wf-dur);
     }
 
     /* Top Navigation */
@@ -191,7 +189,7 @@
       background: var(--wf-ground);
       border-bottom: var(--wf-bw) solid var(--wf-border);
       padding: 12px 24px;
-      transition: background var(--wf-dur);
+      transition: background var(--wf-dur), border-color var(--wf-dur);
     }
     .wf-topbar__inner {
       max-width: 1440px;
@@ -223,12 +221,12 @@
     .wf-logo__title {
       font-family: var(--wf-f-disp);
       font-weight: 800;
-      font-size: 18px;
+      font-size: 17.5px;
       letter-spacing: -0.02em;
       white-space: nowrap;
     }
 
-    /* Top Search Bar (Geist Style) */
+    /* Search Input (Geist Style) */
     .wf-search-box {
       display: flex;
       align-items: center;
@@ -240,6 +238,7 @@
       width: 100%;
       max-width: 360px;
       box-shadow: 2px 2px 0 var(--wf-border);
+      position: relative;
     }
     .wf-search-box input {
       border: none;
@@ -259,6 +258,16 @@
       border-radius: 4px;
       border: 1px solid var(--wf-border);
       color: var(--wf-muted);
+      cursor: pointer;
+    }
+    .wf-search-clear {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--wf-muted);
+      font-size: 14px;
+      padding: 2px;
     }
 
     .wf-topbar__actions {
@@ -268,7 +277,7 @@
       flex-shrink: 0;
     }
 
-    /* Main Portal Grid Layout */
+    /* Main Portal Layout */
     .portal-layout {
       max-width: 1440px;
       margin: 0 auto;
@@ -277,24 +286,25 @@
       min-height: calc(100vh - 65px);
     }
 
-    /* Sticky Categorized Sidebar */
+    /* Sticky Categorized Sidebar (Sleek, Single-Line, Balanced) */
     .portal-sidebar {
       position: sticky;
       top: 65px;
       height: calc(100vh - 65px);
       overflow-y: auto;
       border-right: var(--wf-bw) solid var(--wf-border);
-      padding: 24px 16px 40px;
+      padding: 24px 14px 40px;
       background: var(--wf-ground);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
       -webkit-overflow-scrolling: touch;
+      transition: background var(--wf-dur), border-color var(--wf-dur);
     }
     .sidebar-category {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 3px;
     }
     .sidebar-heading {
       font-family: var(--wf-f-disp);
@@ -303,7 +313,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--wf-muted);
-      padding: 6px 12px;
+      padding: 6px 10px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -312,15 +322,25 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
+      gap: 8px;
+      padding: 7px 10px;
       font-family: var(--wf-f-disp);
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--wf-ink);
       text-decoration: none;
       border-radius: var(--wf-r-sm);
-      border: 1.5px solid transparent;
+      border: 1px solid transparent;
       transition: all 0.15s;
+      white-space: nowrap !important;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sidebar-link span.sidebar-link__title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex: 1;
     }
     .sidebar-link:hover {
       background: var(--wf-ground-2);
@@ -334,15 +354,18 @@
     }
     .sidebar-link__tag {
       font-family: var(--wf-f-mono);
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 700;
       padding: 2px 6px;
       border-radius: var(--wf-r-pill);
       background: var(--wf-terra-tint);
       color: var(--wf-terra-deep);
+      flex-shrink: 0;
+      white-space: nowrap !important;
+      line-height: 1.1;
     }
 
-    /* Main Content Canvas */
+    /* Main Content Area */
     .portal-content {
       padding: clamp(24px, 4vw, 48px) clamp(20px, 4vw, 56px);
       max-width: 1040px;
@@ -351,7 +374,7 @@
 
     /* Content Typography & Sections */
     .doc-section {
-      padding-bottom: 56px;
+      padding-bottom: 52px;
       margin-bottom: 48px;
       border-bottom: var(--wf-bw) solid var(--wf-border);
     }
@@ -363,7 +386,7 @@
     .doc-tag { margin-bottom: 12px; }
     .doc-title {
       font-family: var(--wf-f-disp);
-      font-size: clamp(24px, 4vw, 40px);
+      font-size: clamp(24px, 4vw, 38px);
       font-weight: 800;
       letter-spacing: -0.025em;
       line-height: 1.15;
@@ -372,7 +395,7 @@
       text-wrap: balance;
     }
     .doc-lead {
-      font-size: clamp(15px, 2vw, 17.5px);
+      font-size: clamp(15px, 2vw, 17px);
       line-height: 1.6;
       color: var(--wf-ink-2);
       margin-bottom: 24px;
@@ -380,10 +403,10 @@
     }
     .doc-h3 {
       font-family: var(--wf-f-disp);
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
       color: var(--wf-ink);
-      margin: 28px 0 12px;
+      margin: 26px 0 10px;
     }
     .doc-p {
       font-size: 15px;
@@ -392,14 +415,14 @@
       margin-bottom: 16px;
     }
 
-    /* Manifest Box (Senior Caveat) */
+    /* Manifesto / Genesis Quote Card */
     .manifesto-box {
       background: var(--wf-ground-2);
       border: var(--wf-bw) solid var(--wf-border);
       border-left: 6px solid var(--wf-terra);
       border-radius: var(--wf-r-md);
       padding: 20px 24px;
-      margin: 24px 0;
+      margin: 20px 0;
       box-shadow: var(--wf-shadow-sm);
     }
     .manifesto-box__title {
@@ -407,7 +430,7 @@
       font-weight: 800;
       font-size: 16px;
       color: var(--wf-ink);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -415,12 +438,11 @@
     .manifesto-box__quote {
       font-family: var(--wf-f-body);
       font-size: 14.5px;
-      line-height: 1.55;
-      color: var(--wf-ink-2);
-      font-style: italic;
+      line-height: 1.6;
+      color: var(--wf-ink);
     }
 
-    /* Tactical Components & Sandboxes */
+    /* Component Sandbox Cards */
     .sandbox-card {
       background: var(--wf-surface);
       border: var(--wf-bw) solid var(--wf-border);
@@ -428,6 +450,7 @@
       padding: clamp(20px, 3vw, 28px);
       box-shadow: var(--wf-shadow);
       margin: 20px 0 28px;
+      transition: background var(--wf-dur), border-color var(--wf-dur);
     }
     .sandbox-card__header {
       display: flex;
@@ -440,7 +463,7 @@
       border-bottom: var(--wf-bw-thin) solid var(--wf-ground-2);
     }
 
-    /* Tactile Buttons (Zero Wrapping) */
+    /* Tactile Buttons (Zero Text Wrapping + Click Offset Physics) */
     .wf-btn {
       display: inline-flex;
       align-items: center;
@@ -449,7 +472,7 @@
       font-family: var(--wf-f-disp);
       font-weight: 700;
       font-size: 14px;
-      padding: 10px 22px;
+      padding: 9px 20px;
       border-radius: var(--wf-r-pill);
       border: var(--wf-bw) solid var(--wf-border);
       background: var(--wf-terra);
@@ -459,7 +482,7 @@
       cursor: pointer;
       white-space: nowrap !important;
       user-select: none;
-      transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease), background var(--wf-dur);
+      transition: transform var(--wf-dur) var(--wf-ease), box-shadow var(--wf-dur) var(--wf-ease), background var(--wf-dur), border-color var(--wf-dur);
     }
     .wf-btn:hover {
       transform: translate(-1.5px, -1.5px);
@@ -475,7 +498,7 @@
     }
     .wf-btn--gold {
       background: var(--wf-gold);
-      color: var(--wf-ink);
+      color: var(--slate-12);
     }
     .wf-btn--green {
       background: var(--wf-green);
@@ -509,12 +532,12 @@
       border: var(--wf-bw-thin) solid var(--wf-border);
       background: var(--wf-surface);
       color: var(--wf-ink);
-      white-space: nowrap;
+      white-space: nowrap !important;
     }
-    .mono-tag--terra { background: var(--wf-terra-tint); color: var(--wf-terra-deep); }
-    .mono-tag--green { background: var(--wf-green-tint); color: var(--wf-green-dark); }
-    .mono-tag--gold { background: var(--wf-gold-tint); color: var(--wf-gold-dark); }
-    .mono-tag--blue { background: var(--wf-blue-tint); color: var(--wf-pine); }
+    .mono-tag--terra { background: var(--wf-terra-tint); color: var(--wf-terra); }
+    .mono-tag--green { background: var(--wf-green-tint); color: var(--wf-green); }
+    .mono-tag--gold { background: var(--wf-gold-tint); color: var(--amber-11); }
+    .mono-tag--blue { background: var(--wf-blue-tint); color: var(--blue-9); }
 
     /* Toast Cards */
     .wf-toast {
@@ -544,14 +567,14 @@
       line-height: 1.45;
       color: var(--wf-ink);
     }
-    .wf-toast--success { background: var(--wf-green-tint); border-color: var(--wf-border); }
-    .wf-toast--success .wf-toast__meta { color: var(--wf-green-dark); }
-    .wf-toast--caution { background: var(--wf-gold-tint); border-color: var(--wf-border); }
-    .wf-toast--caution .wf-toast__meta { color: var(--wf-gold-dark); }
-    .wf-toast--error { background: var(--wf-danger-tint); border-color: var(--wf-border); }
-    .wf-toast--error .wf-toast__meta { color: #9F1239; }
-    .wf-toast--info { background: var(--wf-blue-tint); border-color: var(--wf-border); }
-    .wf-toast--info .wf-toast__meta { color: var(--wf-pine); }
+    .wf-toast--success { background: var(--wf-green-tint); }
+    .wf-toast--success .wf-toast__meta { color: var(--wf-green); }
+    .wf-toast--caution { background: var(--wf-gold-tint); }
+    .wf-toast--caution .wf-toast__meta { color: var(--amber-11); }
+    .wf-toast--error { background: var(--wf-danger-tint); }
+    .wf-toast--error .wf-toast__meta { color: var(--wf-danger); }
+    .wf-toast--info { background: var(--wf-blue-tint); }
+    .wf-toast--info .wf-toast__meta { color: var(--blue-9); }
 
     /* Form Inputs */
     .wf-input {
@@ -572,11 +595,9 @@
     }
     .wf-input--error {
       border-color: var(--wf-danger);
-      background: #FFF5F5;
     }
     .wf-input--success {
       border-color: var(--wf-green);
-      background: #F4FDF8;
     }
     .wf-select {
       width: 100%;
@@ -584,7 +605,7 @@
       border: var(--wf-bw) solid var(--wf-border);
       border-radius: var(--wf-r-md);
       background-color: var(--wf-surface);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23001F51' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23FB5707' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: calc(100% - 16px) center;
       background-size: 16px;
@@ -595,11 +616,6 @@
       appearance: none;
       -webkit-appearance: none;
       cursor: pointer;
-      transition: border-color var(--wf-dur), box-shadow var(--wf-dur);
-    }
-    .wf-select:focus {
-      border-color: var(--wf-terra);
-      box-shadow: 0 0 0 3px rgba(251, 87, 7, 0.18);
     }
 
     /* Grids */
@@ -622,6 +638,7 @@
       padding: 16px;
       box-shadow: var(--wf-shadow-lg);
       color: var(--wf-ink);
+      transition: background var(--wf-dur), border-color var(--wf-dur);
     }
     .terminal-header {
       display: flex;
@@ -685,11 +702,11 @@
       white-space: pre;
     }
 
-    /* Modal / Centered Dialog */
+    /* Modal / Centered Dialog & Mobile Bottom-Sheet */
     .wf-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0, 31, 81, 0.55);
+      background: rgba(0, 18, 48, 0.6);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       z-index: 1050;
@@ -771,6 +788,7 @@
       white-space: nowrap !important;
     }
 
+    /* Responsive Breakpoints */
     @media (max-width: 920px) {
       .portal-layout { grid-template-columns: 1fr; }
       .portal-sidebar { display: none; }
@@ -807,16 +825,19 @@
   <!-- Top Navigation Bar -->
   <nav class="wf-topbar">
     <div class="wf-topbar__inner">
-      <a href="#" class="wf-logo-group">
+      <a href="#overview" class="wf-logo-group">
         <span class="wf-logo__badge">WF</span>
         <span class="wf-logo__title">Warm Fusion</span>
       </a>
 
-      <!-- Quick Search (Geist Pattern) -->
+      <!-- Quick Search Bar -->
       <div class="wf-search-box">
         <i class="ph-bold ph-magnifying-glass" style="color:var(--wf-muted);"></i>
-        <input type="text" id="doc-search" placeholder="Search documentation & components..." oninput="handleSearch(this.value)" />
-        <span class="wf-search-kbd">⌘K</span>
+        <input type="text" id="doc-search" placeholder="Search tokens, components, skills..." oninput="handleSearch(this.value)" />
+        <button class="wf-search-clear" id="search-clear-btn" onclick="clearSearch()" title="Clear search">
+          <i class="ph-bold ph-x-circle"></i>
+        </button>
+        <span class="wf-search-kbd" onclick="document.getElementById('doc-search').focus()">⌘K</span>
       </div>
 
       <div class="wf-topbar__actions">
@@ -824,80 +845,122 @@
           <i class="ph-bold ph-sliders-horizontal"></i>
           Theme Studio
         </button>
-        <button onclick="toggleDarkMode()" class="wf-btn wf-btn--sm wf-btn--secondary" id="dark-toggle-btn" title="Toggle Light / Dark Mode">
+        <button onclick="toggleDarkMode()" class="wf-btn wf-btn--sm wf-btn--secondary" id="dark-toggle-btn" title="Toggle Warm Light / Dark Ambiance">
           <i class="ph-bold ph-moon"></i>
         </button>
         <a href="https://github.com/Aleemcode/dmds" target="_blank" rel="noopener" class="wf-btn wf-btn--sm wf-btn--secondary">
           <i class="ph-bold ph-github-logo"></i>
-          Fork
+          GitHub
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- Portal Grid Layout -->
+  <!-- Portal Layout -->
   <div class="portal-layout">
 
-    <!-- Sticky Left Categorized Sidebar -->
+    <!-- Sticky Left Categorized Sidebar (Sleek, Balanced, Single-Line) -->
     <aside class="portal-sidebar" id="portal-sidebar">
       
-      <!-- Foundations -->
+      <!-- Category 1: Foundations -->
       <div class="sidebar-category">
         <div class="sidebar-heading">
           <i class="ph-bold ph-compass"></i> Foundations
         </div>
-        <a href="#chemistry" class="sidebar-link active">The Warm Fusion Chemistry</a>
-        <a href="#manifesto" class="sidebar-link">Architecture Manifesto</a>
-        <a href="#radix-colors" class="sidebar-link">Radix Semantic Colors</a>
-        <a href="#typography" class="sidebar-link">Typography Pairings</a>
-        <a href="#physics" class="sidebar-link">Tactile Physics & Elevation</a>
+        <a href="#overview" class="sidebar-link active">
+          <span class="sidebar-link__title">Overview & Hero</span>
+        </a>
+        <a href="#genesis" class="sidebar-link">
+          <span class="sidebar-link__title">Design Genesis</span>
+          <span class="sidebar-link__tag">Origin</span>
+        </a>
+        <a href="#chemistry" class="sidebar-link">
+          <span class="sidebar-link__title">The Warm Chemistry</span>
+        </a>
+        <a href="#manifesto" class="sidebar-link">
+          <span class="sidebar-link__title">Architecture Manifesto</span>
+        </a>
+        <a href="#radix-colors" class="sidebar-link">
+          <span class="sidebar-link__title">12-Step Radix Engine</span>
+        </a>
+        <a href="#typography" class="sidebar-link">
+          <span class="sidebar-link__title">Typography Pairings</span>
+        </a>
       </div>
 
-      <!-- Studio & AI Superpower -->
+      <!-- Category 2: Interactive Studio -->
       <div class="sidebar-category">
         <div class="sidebar-heading">
-          <i class="ph-bold ph-sparkle"></i> Studio & AI
+          <i class="ph-bold ph-sliders-horizontal"></i> Theme Studio
         </div>
-        <a href="#studio" class="sidebar-link" onclick="openThemeStudioModal()">
-          Live Theme Studio <span class="sidebar-link__tag">Interactive</span>
+        <a href="#studio" class="sidebar-link">
+          <span class="sidebar-link__title">Live Theme Sandbox</span>
+          <span class="sidebar-link__tag">Live</span>
         </a>
-        <a href="#exporter" class="sidebar-link">
-          AI Agent Skill Exporter <span class="sidebar-link__tag">AI Superpower</span>
-        </a>
-        <a href="#integration" class="sidebar-link">Tailwind & Radix Tiers</a>
       </div>
 
-      <!-- Component Library -->
+      <!-- Category 3: Component Library -->
       <div class="sidebar-category">
         <div class="sidebar-heading">
           <i class="ph-bold ph-stack"></i> Components
         </div>
-        <a href="#component-button" class="sidebar-link">Button</a>
-        <a href="#component-badge" class="sidebar-link">Badge & Tag</a>
-        <a href="#component-card" class="sidebar-link">Card</a>
-        <a href="#component-dialog" class="sidebar-link">Dialog & Modal</a>
-        <a href="#component-toast" class="sidebar-link">Toast Notifications</a>
-        <a href="#component-input" class="sidebar-link">Input & Form Controls</a>
-        <a href="#component-primitives" class="sidebar-link">Tabs, Accordion & Switch</a>
-        <a href="#component-table" class="sidebar-link">Data Table</a>
+        <a href="#component-button" class="sidebar-link">
+          <span class="sidebar-link__title">Tactile Buttons</span>
+          <span class="sidebar-link__tag">Core</span>
+        </a>
+        <a href="#component-badge" class="sidebar-link">
+          <span class="sidebar-link__title">Badges & Tags</span>
+        </a>
+        <a href="#component-card" class="sidebar-link">
+          <span class="sidebar-link__title">Cards & Elevation</span>
+        </a>
+        <a href="#component-dialog" class="sidebar-link">
+          <span class="sidebar-link__title">Dialog & Drawer</span>
+        </a>
+        <a href="#component-toast" class="sidebar-link">
+          <span class="sidebar-link__title">Feedback Toasts</span>
+        </a>
+        <a href="#component-input" class="sidebar-link">
+          <span class="sidebar-link__title">Form Inputs</span>
+        </a>
+        <a href="#component-primitives" class="sidebar-link">
+          <span class="sidebar-link__title">Radix Primitives</span>
+        </a>
       </div>
 
-      <!-- Open Source & Community -->
+      <!-- Category 4: AI & Code Export -->
+      <div class="sidebar-category">
+        <div class="sidebar-heading">
+          <i class="ph-bold ph-sparkle"></i> Studio & AI
+        </div>
+        <a href="#exporter" class="sidebar-link">
+          <span class="sidebar-link__title">AI Agent Skill Exporter</span>
+          <span class="sidebar-link__tag">AI Superpower</span>
+        </a>
+        <a href="#integration" class="sidebar-link">
+          <span class="sidebar-link__title">Tailwind & CSS Tokens</span>
+        </a>
+      </div>
+
+      <!-- Category 5: Open Source & Community -->
       <div class="sidebar-category">
         <div class="sidebar-heading">
           <i class="ph-bold ph-git-pull-request"></i> Open Source
         </div>
-        <a href="#contributing" class="sidebar-link">How to Contribute</a>
-        <a href="https://github.com/Aleemcode/dmds/issues" target="_blank" rel="noopener" class="sidebar-link">
-          Submit Component <i class="ph-bold ph-arrow-up-right ph-sm"></i>
+        <a href="#contributing" class="sidebar-link">
+          <span class="sidebar-link__title">How to Contribute</span>
+        </a>
+        <a href="https://github.com/Aleemcode/dmds" target="_blank" rel="noopener" class="sidebar-link">
+          <span class="sidebar-link__title">GitHub Repository</span>
+          <i class="ph-bold ph-arrow-up-right ph-sm"></i>
         </a>
       </div>
     </aside>
 
     <!-- Main Content Canvas -->
-    <main class="portal-content">
+    <main class="portal-content" id="main-content">
 
-      <!-- Hero Overview Section -->
+      <!-- 1. Hero Overview Section -->
       <header class="doc-section" id="overview">
         <div class="doc-tag">
           <span class="mono-tag mono-tag--terra"><i class="ph-bold ph-sparkle ph-sm"></i> Warm Fusion v1.1.0</span>
@@ -905,14 +968,14 @@
           <span class="mono-tag mono-tag--gold"><i class="ph-bold ph-palette ph-sm"></i> Phosphor Icons</span>
         </div>
         <h1 class="doc-title">
-          The Neo-Brutalist structure of crisp tactile physics, fused with the <span style="color:var(--wf-terra);">organic warmth</span> of Swiss design.
+          Warm Fusion Design System
         </h1>
         <p class="doc-lead">
-          <strong>Warm Fusion</strong> is an intentional design system and component architecture born from the synthesis of mechanical tactile feedback and human-centered typographic warmth. Parameterized entirely by <strong>12-step Radix semantic tokens</strong> for expressive, multi-faceted brand identities.
+          Design Maven's design system that tones down the harshness of neo-brutalism with warm colors, mild corner radii (against brutalist sharp edges), controllable tactile physics, parameterized entirely by <strong>12-step Radix semantic tokens</strong> for expressive, multi-faceted brand identities.
         </p>
 
         <!-- Quickstart CLI Terminal -->
-        <div class="terminal-box" style="margin-top:24px;">
+        <div class="terminal-box" style="margin-top:20px;">
           <div class="terminal-header">
             <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
               <div class="terminal-dots">
@@ -925,7 +988,7 @@
                 <button class="terminal-tab" onclick="switchCliTab('pnpm')">pnpm</button>
                 <button class="terminal-tab" onclick="switchCliTab('yarn')">yarn</button>
                 <button class="terminal-tab" onclick="switchCliTab('bun')">bun</button>
-                <button class="terminal-tab" onclick="switchCliTab('degit')">npx degit (starter)</button>
+                <button class="terminal-tab" onclick="switchCliTab('degit')">npx degit</button>
                 <button class="terminal-tab" onclick="switchCliTab('git')">git clone</button>
               </div>
             </div>
@@ -940,12 +1003,40 @@
         </div>
       </header>
 
-      <!-- Section 1: The Chemistry of Warm Fusion -->
+      <!-- 2. Design Genesis & Origin Story -->
+      <section class="doc-section" id="genesis">
+        <span class="mono-tag mono-tag--gold doc-tag">Origin Story</span>
+        <h2 class="doc-title">The Genesis of Warm Fusion</h2>
+        
+        <div class="manifesto-box" style="border-left:6px solid var(--wf-gold-dark);">
+          <div class="manifesto-box__title">
+            <i class="ph-bold ph-lightbulb ph-lg" style="color:var(--wf-gold-dark);"></i>
+            Crafted for Multi-Color Brands & Long User Sessions
+          </div>
+          <p class="manifesto-box__quote">
+            "I was working on a multicolor brand personal project and needed a design system that delivers real tactile physics on buttons. I researched across design movements and observed that only Neo-Brutalism offers that punchy physical click feeling on buttons. However, standard Neo-Brutalism feels punishingly harsh, aggressive, and fatiguing to the eyes over prolonged sessions. Digital products are meant for long, productive sessions.
+          </p>
+          <p class="manifesto-box__quote" style="margin-top:12px;">
+            Working closely with Claude AI, I crafted my feeling of warmth, organic cream backgrounds, mild corner radii to kill the brutalist sharp edges, and controllable tactile physics on buttons — and boom, it birthed <strong>Warm Fusion</strong>.
+          </p>
+          <p class="manifesto-box__quote" style="margin-top:12px;">
+            I also observed that hardcoded color schemes are brittle and difficult to maintain in production environments. So I parameterized the entire color engine with the <strong>Radix UI 12-step color library</strong>, which handles semantic tokens and superb alpha variations brilliantly.
+          </p>
+          <p class="manifesto-box__quote" style="margin-top:12px;">
+            I decided to open-source it as my contribution to the design and developer community. One of its greatest superpowers is the dynamic <code>SKILL.md</code> exporter: curate your parameters here, paste it into any agentic coding environment (Google Antigravity, Claude, Cursor, Gemini), and it generates an impeccably consistent product throughout your entire codebase."
+          </p>
+          <div style="margin-top:16px; font-size:13.5px; font-weight:700; color:var(--wf-ink);">
+            — Aleem Akinyoola, Creator & Senior Design Engineer
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The Chemistry of Warm Fusion -->
       <section class="doc-section" id="chemistry">
-        <span class="mono-tag mono-tag--gold doc-tag">The Design Genesis</span>
+        <span class="mono-tag mono-tag--terra doc-tag">The Aesthetic Formula</span>
         <h2 class="doc-title">The Chemistry of Warm Fusion</h2>
         <p class="doc-lead">
-          Why did we build Warm Fusion? Most Neo-Brutalist systems feel punishingly harsh, aggressive, and fatiguing to the eyes over prolonged sessions. Conversely, traditional corporate design systems often drift into sterile, flat gray minimalism with zero tactile personality. Warm Fusion is the calculated synthesis:
+          Warm Fusion is a deliberate equilibrium between physical mechanical feedback and human typographic warmth:
         </p>
 
         <div class="grid-3">
@@ -953,7 +1044,7 @@
             <span class="mono-tag mono-tag--terra" style="margin-bottom:10px;">The Bone</span>
             <h3 style="font-family:var(--wf-f-disp); font-size:18px; font-weight:800; margin-bottom:8px;">Tactile Brutalist Physics</h3>
             <p style="font-size:13.5px; color:var(--wf-ink-2);">
-              Rigid 2.5px borders, hard 5px drop shadows with zero blur, and mechanical press animations (<code>translate(2px, 2px)</code>) that anchor the UI with physical confidence.
+              Crisp 2.5px borders, hard drop shadows with zero blur, and physical press animations (<code>translate(2px, 2px)</code>) that give clicks real mechanical punch.
             </p>
           </div>
 
@@ -961,7 +1052,7 @@
             <span class="mono-tag mono-tag--green" style="margin-bottom:10px;">The Soul</span>
             <h3 style="font-family:var(--wf-f-disp); font-size:18px; font-weight:800; margin-bottom:8px;">Swiss Typographic Warmth</h3>
             <p style="font-size:13.5px; color:var(--wf-ink-2);">
-              Warm organic cream grounds (<code>#F9F6F0</code>), generous whitespace rhythm, human-centered typography (<em>Bricolage Grotesque</em> & <em>Instrument Sans</em>), and curved 16px/22px corners.
+              Warm organic cream grounds (<code>#F9F6F0</code>), generous whitespace rhythm, human-centered typography (<em>Bricolage Grotesque</em> & <em>Instrument Sans</em>), and rounded 16px corners.
             </p>
           </div>
 
@@ -969,84 +1060,86 @@
             <span class="mono-tag mono-tag--blue" style="margin-bottom:10px;">The Harmony</span>
             <h3 style="font-family:var(--wf-f-disp); font-size:18px; font-weight:800; margin-bottom:8px;">Multi-Color Brand Balance</h3>
             <p style="font-size:13.5px; color:var(--wf-ink-2);">
-              Engineered specifically for expressive, multi-faceted brands. Plug in your diverse colors and the system harmonizes them through computed Radix parameter scales.
+              Engineered specifically for expressive, multi-color brands. Plug in diverse palette colors and the Radix 12-step parameter engine blends them into balanced harmony.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Section 2: Senior Architecture Manifesto (The Caveat) -->
+      <!-- 4. Senior Architecture Manifesto & Guardrails -->
       <section class="doc-section" id="manifesto">
         <span class="mono-tag mono-tag--terra doc-tag">Senior Engineering Manifesto</span>
-        <h2 class="doc-title">The Design System Caveat</h2>
+        <h2 class="doc-title">The Design System Caveat & Guardrails</h2>
         
         <div class="manifesto-box">
           <div class="manifesto-box__title">
             <i class="ph-bold ph-shield-warning ph-lg" style="color:var(--wf-terra);"></i>
-            Architectural Truth: Design Systems Do Not Replace UX Fundamentals
+            Architectural Tenet: Grammar vs. Literature
           </div>
           <p class="manifesto-box__quote">
-            "A design system provides the structural grammar, but you must write the UX poetry. If you do not have solid information architecture, clear visual hierarchy, intentional content design, and thoughtful user flows, you can still bastardize a great design system. Treat Warm Fusion as your precision toolkit, not your substitute for product thinking."
+            "A design system provides the structural grammar, but you must write the UX literature. If you lack solid information architecture, clear visual hierarchy, intentional content design, and thoughtful user flows, you can still build poor experiences with great tokens. Treat Warm Fusion as your precision toolkit, not a shortcut around product thinking."
           </p>
         </div>
 
         <p class="doc-p">
-          To ensure your product succeeds with Warm Fusion, follow our three non-negotiable UX guardrails:
+          To maintain product composure and avoid visual fragmentation, adhere strictly to our core guardrails:
         </p>
         <ul style="padding-left:20px; font-size:14.5px; color:var(--wf-ink-2); line-height:1.7;">
-          <li><strong>1. Purposeful Visual Hierarchy:</strong> Every screen must have exactly ONE primary CTA (Terra Orange). Never compete with multiple high-energy buttons.</li>
-          <li><strong>2. Respect the Rhythms:</strong> Allow organic whitespace to breathe. Never crowd cards without minimum 20px padding.</li>
-          <li><strong>3. Clear Conversational Feedback:</strong> Always pair status changes with semantic Toast notifications and human conversational copy.</li>
+          <li><strong>1. Zero Text Wrapping on Action Labels & Badges:</strong> Buttons, badges, and menu tags must never break onto multiple lines (<code>white-space: nowrap !important;</code>). If container constraints cause overflow, truncate with single-line ellipsis (<code>text-overflow: ellipsis; overflow: hidden;</code>) and reveal full context on hover via tooltips.</li>
+          <li><strong>2. Single Primary CTA Per View:</strong> Every screen must have exactly ONE primary Terra Orange CTA button. Pair secondary actions with surface or neutral styling.</li>
+          <li><strong>3. Generous Breathing Room:</strong> Never crowd cards or containers without minimum 20px padding and structured visual hierarchy.</li>
+          <li><strong>4. Conversational Monospace Feedback:</strong> Always pair state changes with semantic Toast notifications featuring uppercase monospace metadata and clear conversational copy.</li>
+          <li><strong>5. Calibrated Dark Mode Ambiance:</strong> In dark mode, replace stark white borders with soft luminous Radix alpha borders (<code>rgba(255, 255, 255, 0.16)</code>) and warm cream text to preserve prolonged visual comfort.</li>
         </ul>
       </section>
 
-      <!-- Section 3: Radix 12-Step Semantic Color Engine -->
+      <!-- 5. Radix 12-Step Semantic Color Engine -->
       <section class="doc-section" id="radix-colors">
         <span class="mono-tag mono-tag--green doc-tag">Token Architecture</span>
         <h2 class="doc-title">12-Step Radix Semantic Color Engine</h2>
         <p class="doc-lead">
-          Zero hardcoded colors. Warm Fusion is parameterized using <strong>Radix UI 12-Step Color Scales</strong> (<code>@radix-ui/colors</code>) + dynamic Alpha computation. When you adjust a primary or accent token, the system automatically derives background washes, interactive hover/active states, and transparent focus halos.
+          Zero hardcoded visual leaks. Warm Fusion is parameterized using <strong>Radix UI 12-Step Color Scales</strong> (<code>@radix-ui/colors</code>) + dynamic Alpha computation. When you adjust a token in the Theme Studio, the engine derives background washes, interactive hover/active states, and transparent focus halos.
         </p>
 
         <div class="sandbox-card">
           <div class="sandbox-card__header">
-            <span style="font-family:var(--wf-f-disp); font-weight:800; font-size:15px;">Active Radix Token Mappings</span>
+            <span style="font-family:var(--wf-f-disp); font-weight:800; font-size:15px;">Live Parameter Token Scale</span>
             <span class="mono-tag mono-tag--terra">WCAG AA/AAA Compliant</span>
           </div>
           <div class="grid-2">
             <div>
               <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
                 <span>Ground / Canvas</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);">var(--sand-2)</code>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);" id="scale-ground-val">var(--sand-2) · #F9F6F0</code>
               </div>
               <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
                 <span>Raised Section Wash</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);">var(--sand-3)</code>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);" id="scale-wash-val">var(--sand-3) · Alpha 85%</code>
               </div>
               <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
-                <span>Brutalist 2.5px Border & Ink</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);">var(--slate-12)</code>
+                <span>Structural Border & Ink</span>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);" id="scale-ink-val">var(--slate-12) · #001F51</code>
               </div>
             </div>
             <div>
               <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
                 <span>Primary CTA (Energy)</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);">var(--orange-9)</code>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-terra);" id="scale-terra-val">var(--orange-9) · #FB5707</code>
               </div>
-              <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
+              <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);" id="scale-green-row">
                 <span>Secondary Growth</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-green);">var(--grass-9)</code>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-green);" id="scale-green-val">var(--grass-9) · #1BC67F</code>
               </div>
               <div style="display:flex; justify-content:space-between; font-size:13.5px; padding:8px 0; border-bottom:1px solid var(--wf-ground-2);">
-                <span>Prestige Gold</span>
-                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--wf-gold-dark);">var(--amber-9)</code>
+                <span>Accent Gold</span>
+                <code style="font-family:var(--wf-f-mono); font-weight:700; color:var(--amber-11);" id="scale-gold-val">var(--amber-9) · #FFCB66</code>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 4: Typography & Curated Pairings -->
+      <!-- 6. Typography & Curated Pairings -->
       <section class="doc-section" id="typography">
         <span class="mono-tag mono-tag--blue doc-tag">Typography System</span>
         <h2 class="doc-title">Curated Typography Pairings</h2>
@@ -1089,12 +1182,27 @@
         </div>
       </section>
 
-      <!-- Section 5: Component Library Sandboxes -->
+      <!-- 7. Interactive Theme Studio Sandbox (On-Page) -->
+      <section class="doc-section" id="studio">
+        <span class="mono-tag mono-tag--terra doc-tag">Interactive Controls</span>
+        <h2 class="doc-title">Live Theme Studio & Parameter Engine</h2>
+        <p class="doc-lead">
+          Calibrate your colors, typography, borders, drop shadows, and corner radii. All changes cascade immediately across every component on the page and synchronize live with your generated AI skills, Tailwind configs, and CSS tokens.
+        </p>
+
+        <div class="sandbox-card">
+          <div id="inline-studio-controls">
+            <!-- Dynamically Rendered Controls -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Component: Tactile Buttons -->
       <section class="doc-section" id="component-button">
         <span class="mono-tag mono-tag--terra doc-tag">Component Sandbox</span>
         <h2 class="doc-title">Tactile Buttons (Zero Text Wrapping)</h2>
         <p class="doc-lead">
-          Tactile brutalist buttons engineered with strict physical click offset (<code>translate(2px, 2px)</code>) and guaranteed single-line integrity (<code>white-space: nowrap !important;</code>).
+          Engineered with strict click offset physics (<code>translate(2px, 2px)</code>) and guaranteed single-line integrity (<code>white-space: nowrap !important;</code>).
         </p>
 
         <div class="sandbox-card">
@@ -1103,19 +1211,19 @@
             <span class="mono-tag mono-tag--terra">Interactive</span>
           </div>
           <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
-            <button class="wf-btn" onclick="fireToast('success')">
-              <i class="ph-bold ph-lightning"></i> Primary CTA (Terra)
+            <button class="wf-btn" onclick="fireToast('success', 'Primary Action clicked! Physical click registered.')">
+              <i class="ph-bold ph-lightning"></i> Primary Action
             </button>
-            <button class="wf-btn wf-btn--secondary" onclick="fireToast('info')">
+            <button class="wf-btn wf-btn--secondary" onclick="fireToast('info', 'Secondary Surface action triggered.')">
               <i class="ph-bold ph-gear"></i> Secondary Surface
             </button>
-            <button class="wf-btn wf-btn--gold" onclick="fireToast('caution')">
+            <button class="wf-btn wf-btn--gold" onclick="fireToast('caution', 'Warm Gold action triggered.')">
               <i class="ph-bold ph-star"></i> Warm Gold
             </button>
-            <button class="wf-btn wf-btn--green" onclick="fireToast('success')">
-              <i class="ph-bold ph-check"></i> Growth Green
+            <button class="wf-btn wf-btn--green" onclick="fireToast('success', 'Growth action confirmed!')">
+              <i class="ph-bold ph-check"></i> Growth Action
             </button>
-            <button class="wf-btn wf-btn--danger" onclick="fireToast('error')">
+            <button class="wf-btn wf-btn--danger" onclick="fireToast('error', 'Danger Action triggered!')">
               <i class="ph-bold ph-trash"></i> Danger Action
             </button>
             <button class="wf-btn wf-btn--sm">
@@ -1131,7 +1239,83 @@ import { Lightning } from "@phosphor-icons/react";
         </div>
       </section>
 
-      <!-- Component: Toast Notifications -->
+      <!-- 9. Component: Badges & Tags -->
+      <section class="doc-section" id="component-badge">
+        <span class="mono-tag mono-tag--gold doc-tag">Metadata Elements</span>
+        <h2 class="doc-title">Monospace Badges & Status Tags</h2>
+        <p class="doc-lead">
+          High-contrast metadata tags formatted in uppercase monospace typography with zero text wrapping.
+        </p>
+
+        <div class="sandbox-card">
+          <div style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+            <span class="mono-tag mono-tag--terra"><i class="ph-bold ph-sparkle ph-sm"></i> Terra Badge</span>
+            <span class="mono-tag mono-tag--green"><i class="ph-bold ph-check ph-sm"></i> 100% Verified</span>
+            <span class="mono-tag mono-tag--gold"><i class="ph-bold ph-star ph-sm"></i> Premium Tier</span>
+            <span class="mono-tag mono-tag--blue"><i class="ph-bold ph-info ph-sm"></i> System Active</span>
+            <span class="mono-tag">Neutral Status</span>
+          </div>
+          <p class="doc-p" style="margin-bottom:0;">
+            Tags automatically compute dynamic alpha backgrounds (<code>--wf-terra-tint</code>, <code>--wf-green-tint</code>, etc.) matching the current Theme Studio values.
+          </p>
+        </div>
+      </section>
+
+      <!-- 10. Component: Cards & Elevation -->
+      <section class="doc-section" id="component-card">
+        <span class="mono-tag mono-tag--green doc-tag">Surfaces & Elevation</span>
+        <h2 class="doc-title">Tactile Cards & Elevation</h2>
+        <p class="doc-lead">
+          Structured cards featuring hard drop shadows (<code>var(--wf-shadow)</code>) with zero blur and soft luminous borders in dark mode.
+        </p>
+
+        <div class="grid-2">
+          <div class="sandbox-card" style="margin:0;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="mono-tag mono-tag--terra">Active Surface</span>
+              <i class="ph-bold ph-cube ph-lg" style="color:var(--wf-terra);"></i>
+            </div>
+            <h3 style="font-family:var(--wf-f-disp); font-size:18px; font-weight:800; margin-bottom:6px;">Standard Tactile Card</h3>
+            <p style="font-size:13.5px; color:var(--wf-ink-2);">
+              Structured boundaries, generous 24px padding, and mechanical drop shadows that anchor information with confidence.
+            </p>
+          </div>
+
+          <div class="sandbox-card" style="margin:0; background:var(--wf-ground-2);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+              <span class="mono-tag mono-tag--blue">Raised Ground</span>
+              <i class="ph-bold ph-layers ph-lg" style="color:var(--wf-blue);"></i>
+            </div>
+            <h3 style="font-family:var(--wf-f-disp); font-size:18px; font-weight:800; margin-bottom:6px;">Subtle Section Wash</h3>
+            <p style="font-size:13.5px; color:var(--wf-ink-2);">
+              Raised canvas wash (<code>var(--wf-ground-2)</code>) designed for sidebars, callout panels, and nested metadata groupings.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. Component: Dialog & Drawer -->
+      <section class="doc-section" id="component-dialog">
+        <span class="mono-tag mono-tag--blue doc-tag">Adaptive Overlays</span>
+        <h2 class="doc-title">Adaptive Dialog & Mobile Bottom-Sheet</h2>
+        <p class="doc-lead">
+          Automatically adapts between a centered floating dialog with 8px hard drop shadow on desktop, and a tactile bottom-sheet drawer with a drag handle on mobile screens (≤680px).
+        </p>
+
+        <div class="sandbox-card">
+          <div class="sandbox-card__header">
+            <span>Adaptive Overlay Preview</span>
+            <button class="wf-btn wf-btn--sm" onclick="openDemoModal()">
+              <i class="ph-bold ph-browsers"></i> Launch Modal & Drawer
+            </button>
+          </div>
+          <p class="doc-p" style="margin-bottom:0;">
+            Test on desktop to see the centered tactile frame with backdrop blur, or resize to mobile to test smooth bottom-sheet docking.
+          </p>
+        </div>
+      </section>
+
+      <!-- 12. Component: Feedback Toasts -->
       <section class="doc-section" id="component-toast">
         <span class="mono-tag mono-tag--green doc-tag">Signature Feedback</span>
         <h2 class="doc-title">Monospace Feedback Toasts</h2>
@@ -1157,7 +1341,7 @@ import { Lightning } from "@phosphor-icons/react";
               <i class="ph-bold ph-warning"></i>
               <span>CAUTION</span>
               <span>·</span>
-              <span id="toast-caution-code">#C9902E</span>
+              <span id="toast-caution-code">#FFCB66</span>
             </div>
             <p class="wf-toast__body">
               Heads up: this recipe requires your API credentials added first.
@@ -1190,31 +1374,13 @@ import { Lightning } from "@phosphor-icons/react";
         </div>
       </section>
 
-      <!-- Component: Dialog & Drawer -->
-      <section class="doc-section" id="component-dialog">
-        <span class="mono-tag mono-tag--blue doc-tag">Adaptive Overlays</span>
-        <h2 class="doc-title">Adaptive Dialog & Mobile Bottom-Sheet</h2>
-        <p class="doc-lead">
-          Automatically adapts between a centered floating dialog with 8px hard drop shadow on desktop, and a tactile bottom-sheet drawer with a drag handle on mobile screens (≤680px).
-        </p>
-
-        <div class="sandbox-card">
-          <div class="sandbox-card__header">
-            <span>Adaptive Overlay Preview</span>
-            <button class="wf-btn wf-btn--sm" onclick="openDemoModal()">
-              <i class="ph-bold ph-browsers"></i> Launch Modal & Drawer
-            </button>
-          </div>
-          <p class="doc-p">
-            Test on desktop to see the centered tactile frame with backdrop blur, or resize to mobile to test smooth bottom-sheet docking.
-          </p>
-        </div>
-      </section>
-
-      <!-- Component: Input Controls -->
+      <!-- 13. Component: Input Controls -->
       <section class="doc-section" id="component-input">
         <span class="mono-tag mono-tag--gold doc-tag">Form Suite</span>
         <h2 class="doc-title">Tactile Form Controls & High-Contrast States</h2>
+        <p class="doc-lead">
+          Input fields with 2.5px borders, subtle focus halo glows, and semantic validation states.
+        </p>
         
         <div class="sandbox-card">
           <div class="grid-2" style="margin-bottom:16px;">
@@ -1238,7 +1404,7 @@ import { Lightning } from "@phosphor-icons/react";
             </div>
 
             <div>
-              <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; color:var(--wf-green-dark); margin-bottom:5px; display:flex; align-items:center; gap:4px;">
+              <label style="font-family:var(--wf-f-disp); font-size:12.5px; font-weight:700; color:var(--wf-green); margin-bottom:5px; display:flex; align-items:center; gap:4px;">
                 <i class="ph-bold ph-check-circle"></i> Handle (Success State)
               </label>
               <input type="text" class="wf-input wf-input--success" value="@aleemcode" />
@@ -1247,12 +1413,38 @@ import { Lightning } from "@phosphor-icons/react";
         </div>
       </section>
 
-      <!-- Section 6: Dynamic AI Agent Skill Exporter -->
+      <!-- 14. Component: Radix Primitives -->
+      <section class="doc-section" id="component-primitives">
+        <span class="mono-tag mono-tag--blue doc-tag">Accessible Primitives</span>
+        <h2 class="doc-title">Radix Primitives & Interactive Controls</h2>
+        <p class="doc-lead">
+          Accessible Radix UI primitives wrapped in tactile borders and high-contrast active states.
+        </p>
+
+        <div class="sandbox-card">
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="demo-check" checked style="width:20px; height:20px; accent-color:var(--wf-terra); cursor:pointer;" />
+              <label for="demo-check" style="font-family:var(--wf-f-disp); font-size:13.5px; font-weight:700; cursor:pointer;">Enforce Guardrails</label>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:8px;">
+              <input type="radio" id="radio-1" name="demo-radio" checked style="width:18px; height:18px; accent-color:var(--wf-terra); cursor:pointer;" />
+              <label for="radio-1" style="font-family:var(--wf-f-disp); font-size:13.5px; font-weight:700; cursor:pointer;">Radix 12-Step</label>
+              
+              <input type="radio" id="radio-2" name="demo-radio" style="width:18px; height:18px; accent-color:var(--wf-terra); cursor:pointer; margin-left:12px;" />
+              <label for="radio-2" style="font-family:var(--wf-f-disp); font-size:13.5px; font-weight:700; cursor:pointer;">Alpha Tints</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 15. Dynamic AI Agent Skill Generator -->
       <section class="doc-section" id="exporter">
-        <span class="mono-tag mono-tag--green doc-tag">The Killer Perk</span>
+        <span class="mono-tag mono-tag--green doc-tag">The Killer Superpower</span>
         <h2 class="doc-title">Dynamic AI Agent Skill Generator</h2>
         <p class="doc-lead">
-          Test and calibrate your colors, typography, and tactile physics in the Theme Studio, then export a tailored <code>SKILL.md</code> or <code>AGENTS.md</code> file loaded with all Radix token variables, component library code recipes, and strict system guardrails for Google Antigravity, Claude, Cursor, and Gemini.
+          Test and calibrate your colors, typography, and tactile physics in the Theme Studio, then export a tailored <code>SKILL.md</code> or <code>design.md</code> file loaded with all live Radix token variables, active theme mode, component recipes, and strict system guardrails for Google Antigravity, Claude, Cursor, and Gemini.
         </p>
 
         <div class="terminal-box">
@@ -1264,7 +1456,7 @@ import { Lightning } from "@phosphor-icons/react";
                 <span class="terminal-dot terminal-dot--green"></span>
               </div>
               <div class="terminal-tabs">
-                <button class="terminal-tab active" id="tab-skill" onclick="switchExportTab('skill')">SKILL.md</button>
+                <button class="terminal-tab active" id="tab-skill" onclick="switchExportTab('skill')">SKILL.md / design.md</button>
                 <button class="terminal-tab" id="tab-tailwind" onclick="switchExportTab('tailwind')">tailwind.config.js</button>
                 <button class="terminal-tab" id="tab-css" onclick="switchExportTab('css')">tokens.css</button>
               </div>
@@ -1282,7 +1474,30 @@ import { Lightning } from "@phosphor-icons/react";
         </div>
       </section>
 
-      <!-- Section 7: Open Source & Community Contribution Hub -->
+      <!-- 16. Integration: Tailwind & CSS Tokens -->
+      <section class="doc-section" id="integration">
+        <span class="mono-tag mono-tag--blue doc-tag">Developer Setup</span>
+        <h2 class="doc-title">Tailwind CSS & CSS Tokens Integration</h2>
+        <p class="doc-lead">
+          Drop Warm Fusion tokens into your existing web stack. Full support for Tailwind v3/v4, Next.js, Vite, and vanilla CSS architectures.
+        </p>
+
+        <div class="grid-2">
+          <div class="sandbox-card">
+            <h3 style="font-family:var(--wf-f-disp); font-size:16px; font-weight:800; margin-bottom:8px;">1. Import Tokens</h3>
+            <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:12px; overflow-x:auto;">import "@designmaven/design-system/tokens.css";</pre>
+          </div>
+
+          <div class="sandbox-card">
+            <h3 style="font-family:var(--wf-f-disp); font-size:16px; font-weight:800; margin-bottom:8px;">2. Use Tailwind Utilities</h3>
+            <pre style="background:#001230; color:#CBD5E1; padding:12px; border-radius:var(--wf-r-sm); font-family:var(--wf-f-mono); font-size:12px; overflow-x:auto;">&lt;button className="bg-terra text-white font-display font-bold border-2.5 border-forest shadow-wf rounded-full px-5 py-2.5 whitespace-nowrap active:translate-x-0.5 active:translate-y-0.5"&gt;
+  Action
+&lt;/button&gt;</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 17. Open Source & Community Contribution Hub -->
       <section class="doc-section" id="contributing">
         <span class="mono-tag mono-tag--terra doc-tag">Community & Open Source</span>
         <h2 class="doc-title">How to Contribute to Warm Fusion</h2>
@@ -1359,12 +1574,12 @@ import { Lightning } from "@phosphor-icons/react";
         </button>
       </div>
 
-      <div id="studio-controls-container">
+      <div id="modal-studio-controls">
         <!-- Dynamically Rendered Controls -->
       </div>
 
       <div style="margin-top:24px;">
-        <button class="wf-btn" style="width:100%;" onclick="closeThemeStudioModal(); fireToast('success', 'Theme customized & applied successfully!');">
+        <button class="wf-btn" style="width:100%;" onclick="closeThemeStudioModal(); fireToast('success', 'Theme parameters customized & synchronized!');">
           Apply & Close
         </button>
       </div>
@@ -1389,7 +1604,7 @@ import { Lightning } from "@phosphor-icons/react";
       </p>
       <div style="display:flex; justify-content:flex-end; gap:8px;">
         <button class="wf-btn wf-btn--secondary wf-btn--sm" onclick="closeDemoModal()">Dismiss</button>
-        <button class="wf-btn wf-btn--sm" onclick="closeDemoModal(); fireToast('success');">Confirm Action</button>
+        <button class="wf-btn wf-btn--sm" onclick="closeDemoModal(); fireToast('success', 'Modal action confirmed!');">Confirm Action</button>
       </div>
     </div>
   </div>
@@ -1405,7 +1620,7 @@ import { Lightning } from "@phosphor-icons/react";
 
   <!-- Interactive JavaScript Engine -->
   <script>
-    // Canonical Theme State
+    // State
     const currentTheme = {
       ground: "#F9F6F0",
       surface: "#FFFFFF",
@@ -1413,12 +1628,15 @@ import { Lightning } from "@phosphor-icons/react";
       terra: "#FB5707",
       green: "#1BC67F",
       gold: "#FFCB66",
+      blue: "#3B86FE",
+      danger: "#E11D48",
       bw: "2.5px",
       shadow: "5px",
       radius: "16px",
       fontPairing: "humanist"
     };
 
+    let isDarkMode = false;
     let activeExportTab = 'skill';
     let activeCliTab = 'npm';
 
@@ -1505,35 +1723,47 @@ import { Lightning } from "@phosphor-icons/react";
       if (prop === '--wf-ground') {
         currentTheme.ground = val;
         document.documentElement.style.setProperty('--wf-ground-2', hexToRgba(val, 0.85));
+        const el = document.getElementById('scale-ground-val');
+        if (el) el.innerText = `var(--sand-2) · ${val}`;
       }
       if (prop === '--wf-surface') currentTheme.surface = val;
       if (prop === '--wf-terra') {
         currentTheme.terra = val;
         document.documentElement.style.setProperty('--wf-terra-tint', hexToRgba(val, 0.12));
+        const el = document.getElementById('scale-terra-val');
+        if (el) el.innerText = `var(--orange-9) · ${val}`;
       }
       if (prop === '--wf-green') {
         currentTheme.green = val;
         document.documentElement.style.setProperty('--wf-green-tint', hexToRgba(val, 0.12));
         const tg = document.getElementById('toast-success-code');
         if (tg) tg.innerText = val;
+        const el = document.getElementById('scale-green-val');
+        if (el) el.innerText = `var(--grass-9) · ${val}`;
       }
       if (prop === '--wf-gold') {
         currentTheme.gold = val;
         document.documentElement.style.setProperty('--wf-gold-tint', hexToRgba(val, 0.14));
         const tc = document.getElementById('toast-caution-code');
         if (tc) tc.innerText = val;
+        const el = document.getElementById('scale-gold-val');
+        if (el) el.innerText = `var(--amber-9) · ${val}`;
       }
 
-      syncInputs();
+      syncAllInputs();
       renderCode();
     }
 
     function updateInk(val) {
-      document.documentElement.style.setProperty('--wf-ink', val);
-      document.documentElement.style.setProperty('--wf-forest', val);
-      document.documentElement.style.setProperty('--wf-border', val);
+      if (!isDarkMode) {
+        document.documentElement.style.setProperty('--wf-ink', val);
+        document.documentElement.style.setProperty('--wf-forest', val);
+        document.documentElement.style.setProperty('--wf-border', val);
+      }
       currentTheme.ink = val;
-      syncInputs();
+      const el = document.getElementById('scale-ink-val');
+      if (el) el.innerText = `var(--slate-12) · ${val}`;
+      syncAllInputs();
       renderCode();
     }
 
@@ -1550,7 +1780,7 @@ import { Lightning } from "@phosphor-icons/react";
         document.documentElement.style.setProperty('--wf-r-md', (val > 12 ? val - 4 : val) + 'px');
         currentTheme.radius = val + 'px';
       }
-      syncInputs();
+      syncAllInputs();
       renderCode();
     }
 
@@ -1589,13 +1819,23 @@ import { Lightning } from "@phosphor-icons/react";
       renderCode();
     }
 
+    // Stateful & Reliable Dark Mode Switcher with Soft Alpha Borders
     function toggleDarkMode() {
-      const isDark = document.documentElement.classList.toggle('dark');
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
       const btn = document.getElementById('dark-toggle-btn');
       if (btn) {
-        btn.innerHTML = isDark ? '<i class="ph-bold ph-sun"></i>' : '<i class="ph-bold ph-moon"></i>';
+        btn.innerHTML = isDarkMode ? '<i class="ph-bold ph-sun"></i>' : '<i class="ph-bold ph-moon"></i>';
+        btn.title = isDarkMode ? 'Switch to Warm Light Mode' : 'Switch to Warm Dark Ambiance';
       }
-      fireToast('info', isDark ? 'Dark mode enabled' : 'Light mode enabled');
+      fireToast('info', isDarkMode ? 'Warm Dark Mode activated with soft luminous borders' : 'Warm Light Mode activated');
+      renderCode();
     }
 
     function openThemeStudioModal() {
@@ -1612,7 +1852,8 @@ import { Lightning } from "@phosphor-icons/react";
       document.getElementById('demo-modal-backdrop').classList.remove('is-open');
     }
 
-    function renderStudioControlsHTML() {
+    // Studio Controls Component Generator
+    function generateControlsTemplate(prefix) {
       return `
         <div style="margin-bottom:16px;">
           <span style="font-family:var(--wf-f-disp); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--wf-muted); display:block; margin-bottom:8px;">10 Curated Brand Presets</span>
@@ -1633,65 +1874,65 @@ import { Lightning } from "@phosphor-icons/react";
         </div>
 
         <div style="margin-bottom:16px;">
-          <span style="font-family:var(--wf-f-disp); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--wf-muted); display:block; margin-bottom:8px;">Color Token Parameter Scales</span>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <span style="font-family:var(--wf-f-disp); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--wf-muted); display:block; margin-bottom:8px;">12-Step Radix Color Parameters</span>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:8px;">
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-ground" value="${currentTheme.ground}" onchange="updateToken('--wf-ground', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-ground" value="${currentTheme.ground}" onchange="updateToken('--wf-ground', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Ground</span>
-                <span id="picker-ground-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.ground}</span>
+                <span id="${prefix}-picker-ground-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.ground}</span>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-surface" value="${currentTheme.surface}" onchange="updateToken('--wf-surface', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-surface" value="${currentTheme.surface}" onchange="updateToken('--wf-surface', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Surface</span>
-                <span id="picker-surface-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.surface}</span>
+                <span id="${prefix}-picker-surface-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.surface}</span>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-ink" value="${currentTheme.ink}" onchange="updateInk(this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-ink" value="${currentTheme.ink}" onchange="updateInk(this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Ink & Border</span>
-                <span id="picker-ink-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.ink}</span>
+                <span id="${prefix}-picker-ink-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.ink}</span>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-terra" value="${currentTheme.terra}" onchange="updateToken('--wf-terra', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-terra" value="${currentTheme.terra}" onchange="updateToken('--wf-terra', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Primary CTA</span>
-                <span id="picker-terra-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.terra}</span>
+                <span id="${prefix}-picker-terra-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.terra}</span>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-green" value="${currentTheme.green}" onchange="updateToken('--wf-green', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-green" value="${currentTheme.green}" onchange="updateToken('--wf-green', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Secondary</span>
-                <span id="picker-green-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.green}</span>
+                <span id="${prefix}-picker-green-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.green}</span>
               </div>
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; background:var(--wf-ground); border:var(--wf-bw-thin) solid var(--wf-border); padding:6px 10px; border-radius:var(--wf-r-sm);">
-              <input type="color" id="picker-gold" value="${currentTheme.gold}" onchange="updateToken('--wf-gold', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
+              <input type="color" id="${prefix}-picker-gold" value="${currentTheme.gold}" onchange="updateToken('--wf-gold', this.value)" style="width:24px; height:24px; border-radius:50%; border:none; cursor:pointer;" />
               <div>
                 <span style="font-size:11px; font-weight:700; display:block;">Accent Gold</span>
-                <span id="picker-gold-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.gold}</span>
+                <span id="${prefix}-picker-gold-hex" style="font-size:10px; font-family:var(--wf-f-mono); color:var(--wf-muted);">${currentTheme.gold}</span>
               </div>
             </div>
           </div>
         </div>
 
         <div>
-          <span style="font-family:var(--wf-f-disp); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--wf-muted); display:block; margin-bottom:8px;">Tactile Physics</span>
+          <span style="font-family:var(--wf-f-disp); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--wf-muted); display:block; margin-bottom:8px;">Tactile Physics & Corner Radii</span>
           
           <div style="margin-bottom:10px;">
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
               <span>Border Width</span>
-              <span id="label-bw" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.bw}</span>
+              <span id="${prefix}-label-bw" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.bw}</span>
             </div>
             <input type="range" min="1" max="4" step="0.5" value="${parseFloat(currentTheme.bw)}" oninput="updatePhysics('bw', this.value)" style="width:100%; accent-color:var(--wf-terra); cursor:pointer;" />
           </div>
@@ -1699,7 +1940,7 @@ import { Lightning } from "@phosphor-icons/react";
           <div style="margin-bottom:10px;">
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
               <span>Drop Shadow Depth</span>
-              <span id="label-shadow" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.shadow}</span>
+              <span id="${prefix}-label-shadow" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.shadow}</span>
             </div>
             <input type="range" min="2" max="10" step="1" value="${parseFloat(currentTheme.shadow)}" oninput="updatePhysics('shadow', this.value)" style="width:100%; accent-color:var(--wf-terra); cursor:pointer;" />
           </div>
@@ -1707,7 +1948,7 @@ import { Lightning } from "@phosphor-icons/react";
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
               <span>Card Radius</span>
-              <span id="label-radius" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.radius}</span>
+              <span id="${prefix}-label-radius" style="font-family:var(--wf-f-mono); font-weight:700;">${currentTheme.radius}</span>
             </div>
             <input type="range" min="6" max="28" step="2" value="${parseFloat(currentTheme.radius)}" oninput="updatePhysics('radius', this.value)" style="width:100%; accent-color:var(--wf-terra); cursor:pointer;" />
           </div>
@@ -1715,31 +1956,34 @@ import { Lightning } from "@phosphor-icons/react";
       `;
     }
 
-    function syncInputs() {
-      const g = document.getElementById('picker-ground');
-      if (g) {
-        g.value = currentTheme.ground;
-        document.getElementById('picker-ground-hex').innerText = currentTheme.ground;
-        document.getElementById('picker-surface').value = currentTheme.surface;
-        document.getElementById('picker-surface-hex').innerText = currentTheme.surface;
-        document.getElementById('picker-ink').value = currentTheme.ink;
-        document.getElementById('picker-ink-hex').innerText = currentTheme.ink;
-        document.getElementById('picker-terra').value = currentTheme.terra;
-        document.getElementById('picker-terra-hex').innerText = currentTheme.terra;
-        document.getElementById('picker-green').value = currentTheme.green;
-        document.getElementById('picker-green-hex').innerText = currentTheme.green;
-        document.getElementById('picker-gold').value = currentTheme.gold;
-        document.getElementById('picker-gold-hex').innerText = currentTheme.gold;
+    function syncAllInputs() {
+      ['inline', 'modal'].forEach(prefix => {
+        const g = document.getElementById(`${prefix}-picker-ground`);
+        if (g) {
+          g.value = currentTheme.ground;
+          document.getElementById(`${prefix}-picker-ground-hex`).innerText = currentTheme.ground;
+          document.getElementById(`${prefix}-picker-surface`).value = currentTheme.surface;
+          document.getElementById(`${prefix}-picker-surface-hex`).innerText = currentTheme.surface;
+          document.getElementById(`${prefix}-picker-ink`).value = currentTheme.ink;
+          document.getElementById(`${prefix}-picker-ink-hex`).innerText = currentTheme.ink;
+          document.getElementById(`${prefix}-picker-terra`).value = currentTheme.terra;
+          document.getElementById(`${prefix}-picker-terra-hex`).innerText = currentTheme.terra;
+          document.getElementById(`${prefix}-picker-green`).value = currentTheme.green;
+          document.getElementById(`${prefix}-picker-green-hex`).innerText = currentTheme.green;
+          document.getElementById(`${prefix}-picker-gold`).value = currentTheme.gold;
+          document.getElementById(`${prefix}-picker-gold-hex`).innerText = currentTheme.gold;
 
-        document.getElementById('label-bw').innerText = currentTheme.bw;
-        document.getElementById('label-shadow').innerText = currentTheme.shadow;
-        document.getElementById('label-radius').innerText = currentTheme.radius;
-      }
+          document.getElementById(`${prefix}-label-bw`).innerText = currentTheme.bw;
+          document.getElementById(`${prefix}-label-shadow`).innerText = currentTheme.shadow;
+          document.getElementById(`${prefix}-label-radius`).innerText = currentTheme.radius;
+        }
+      });
     }
 
-    // Dynamic AI Agent Skill Generator
+    // Dynamic AI Agent Skill Generator (Captures Live Values & Theme Mode)
     function generateSkillMd() {
       const font = typographyStacks[currentTheme.fontPairing] || typographyStacks.humanist;
+      const themeModeStr = isDarkMode ? "dark" : "light";
       return `---
 name: dmaven-warm-fusion
 description: >-
@@ -1755,6 +1999,7 @@ Created by **Design Maven Studio** · Architected by **Aleem Akinyoola**.
 ---
 
 ## 1. Design Genesis & Semantic Radix Tokens
+- **Active Theme Mode**: \`${themeModeStr}\` (Light / Dark Ambiance)
 - Ground / Canvas: \`${currentTheme.ground}\` (mapped to \`var(--sand-2)\`)
 - Pure Surface: \`${currentTheme.surface}\` (mapped to \`var(--sand-1)\` / \`#FFFFFF\`)
 - Ink & Structural Border: \`${currentTheme.ink}\` (mapped to \`var(--slate-12)\`)
@@ -1808,7 +2053,7 @@ import { Card, Badge } from "@designmaven/design-system";
 \`\`\`
 
 ### Component 3: \`Badge\` / \`Tag\`
-High-contrast monospace pill tag for categories, status badges, and metadata.
+High-contrast monospace pill tag for categories, status badges, and metadata. Zero text wrapping.
 \`\`\`tsx
 import { Badge } from "@designmaven/design-system";
 import { CheckCircle } from "@phosphor-icons/react";
@@ -1852,46 +2097,28 @@ const { toast } = useToast();
 
 // Success
 toast({
-  type: "success", // Header: "✓ SUCCESS · #1BC67F"
+  type: "success", // Header: "✓ SUCCESS · ${currentTheme.green}"
   title: "Profile updated successfully!",
   description: "Your brand tokens have been synchronized across all views."
 });
 
 // Error
 toast({
-  type: "error", // Header: "× ERROR · #E11D48"
+  type: "error", // Header: "× ERROR · ${currentTheme.danger}"
   title: "Connection timeout",
   description: "Could not reach the database. Please check your credentials."
 });
 \`\`\`
 
-### Component 6: \`Input\`, \`Select\`, \`Textarea\`
-Tactile input controls with generous padding, right-aligned dropdown chevrons, and high-contrast focus rings.
-\`\`\`tsx
-import { Input, Select, Textarea } from "@designmaven/design-system";
-
-<Input label="Workspace Name" placeholder="e.g. Production Workspace" />
-<Select label="Color Preset" options={[{ label: "Warm Fusion", value: "classic" }]} />
-<Textarea label="Custom Guardrails" rows={4} />
-\`\`\`
-
-### Component 7: \`Tabs\`, \`Accordion\`, \`Switch\`
-Accessible Radix primitives styled with tactile DMaven borders and active pill states.
-\`\`\`tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent, Accordion, Switch } from "@designmaven/design-system";
-\`\`\`
-
 ---
 
 ## 4. Strict Guardrails
-1. **Official Icons**: Exclusively use **Phosphor Icons** (weight: \`bold\` or \`regular\`). Never use emojis or mismatched icon sets.
-2. **Never use blurred shadows**: Use hard offset drop shadows (\`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`).
-3. **Never use pure #000000 black**: Always use customized brand ink (\`${currentTheme.ink}\`).
-4. **Button Wrapping**: Always enforce \`white-space: nowrap !important;\` on buttons. Text must never break into two lines inside a button.
-5. **Mobile Bottom-Sheet Rule**: On mobile screens (<=680px), modals MUST dock to \`bottom: 0\` with drag handle and zero lateral drift.
-6. **Feedback Toast Standard**: Use \`.wf-toast\` cards with monospace status header (icon + variant name + hex metadata) and conversational body copy.
-7. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
-8. **Minimum 44px Tap Targets**: Ensure touch-friendly controls across mobile devices.
+1. **Zero Text Wrapping on Action Labels & Badges**: Buttons, badges, and menu tags must never awkwardly break into multiple lines (\`white-space: nowrap !important;\`). If constrained, truncate with single-line ellipsis (\`overflow: hidden; text-overflow: ellipsis;\`) and reveal context on hover via tooltip.
+2. **Official Icons**: Exclusively use **Phosphor Icons** (weight: \`bold\` or \`regular\`). Never use emojis or mismatched icon sets.
+3. **Never use blurred shadows in light mode**: Use hard offset drop shadows (\`${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}\`).
+4. **Dark Mode Soft Ambiance**: In dark mode, replace stark white borders with soft luminous Radix alpha borders (\`rgba(255, 255, 255, 0.16)\`) to preserve eye comfort during long sessions.
+5. **Mobile Bottom-Sheet Rule**: On mobile screens (<=680px), modals MUST dock to \`bottom: 0\` with a drag handle and zero lateral drift.
+6. **Physical Press Animations**: Interactive buttons animate with \`transform: translate(2px, 2px)\` on active press.
 `;
     }
 
@@ -1899,25 +2126,38 @@ import { Tabs, TabsList, TabsTrigger, TabsContent, Accordion, Switch } from "@de
       const font = typographyStacks[currentTheme.fontPairing] || typographyStacks.humanist;
       return `/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         ground: "${currentTheme.ground}",
+        "ground-2": "${hexToRgba(currentTheme.ground, 0.85)}",
         surface: "${currentTheme.surface}",
         forest: "${currentTheme.ink}",
         ink: "${currentTheme.ink}",
         terra: "${currentTheme.terra}",
+        "terra-tint": "${hexToRgba(currentTheme.terra, 0.12)}",
         green: "${currentTheme.green}",
+        "green-tint": "${hexToRgba(currentTheme.green, 0.12)}",
         gold: "${currentTheme.gold}",
+        "gold-tint": "${hexToRgba(currentTheme.gold, 0.14)}",
+        blue: "${currentTheme.blue}",
+        danger: "${currentTheme.danger}",
       },
       borderWidth: {
         wf: "${currentTheme.bw}",
+        "wf-thin": "1.5px",
       },
       boxShadow: {
         wf: "${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink}",
+        "wf-sm": "3px 3px 0 ${currentTheme.ink}",
+        "wf-lg": "${parseFloat(currentTheme.shadow)+3}px ${parseFloat(currentTheme.shadow)+3}px 0 ${currentTheme.ink}",
       },
       borderRadius: {
+        "wf-xl": "22px",
         "wf-lg": "${currentTheme.radius}",
+        "wf-md": "${parseFloat(currentTheme.radius) > 12 ? parseFloat(currentTheme.radius)-4 : parseFloat(currentTheme.radius)}px",
+        "wf-sm": "8px",
         "wf-pill": "9999px",
       },
       fontFamily: {
@@ -1932,19 +2172,43 @@ module.exports = {
     }
 
     function generateCssTokens() {
-      return `:root {
+      return `/* Warm Fusion Parameterized CSS Tokens */
+:root {
   --wf-ground: ${currentTheme.ground};
+  --wf-ground-2: ${hexToRgba(currentTheme.ground, 0.85)};
   --wf-surface: ${currentTheme.surface};
   --wf-border: ${currentTheme.ink};
   --wf-ink: ${currentTheme.ink};
   --wf-forest: ${currentTheme.ink};
   --wf-terra: ${currentTheme.terra};
+  --wf-terra-tint: ${hexToRgba(currentTheme.terra, 0.12)};
   --wf-green: ${currentTheme.green};
+  --wf-green-tint: ${hexToRgba(currentTheme.green, 0.12)};
   --wf-gold: ${currentTheme.gold};
+  --wf-gold-tint: ${hexToRgba(currentTheme.gold, 0.14)};
+  --wf-blue: ${currentTheme.blue};
+  --wf-blue-tint: ${hexToRgba(currentTheme.blue, 0.12)};
+  --wf-danger: ${currentTheme.danger};
+  --wf-danger-tint: ${hexToRgba(currentTheme.danger, 0.12)};
+
   --wf-bw: ${currentTheme.bw};
   --wf-shadow: ${currentTheme.shadow} ${currentTheme.shadow} 0 ${currentTheme.ink};
+  --wf-shadow-sm: 3px 3px 0 ${currentTheme.ink};
+  --wf-shadow-lg: ${parseFloat(currentTheme.shadow)+3}px ${parseFloat(currentTheme.shadow)+3}px 0 ${currentTheme.ink};
+  
   --wf-r-lg: ${currentTheme.radius};
   --wf-r-pill: 9999px;
+}
+
+/* Soft Ambiance Dark Mode */
+.dark, [data-theme="dark"] {
+  --wf-ground: #0F1117;
+  --wf-ground-2: #171B22;
+  --wf-surface: #1E232E;
+  --wf-border: rgba(255, 255, 255, 0.16);
+  --wf-ink: #F5F2EB;
+  --wf-ink-2: #A8B1BE;
+  --wf-shadow: 4px 4px 0 rgba(0, 0, 0, 0.45);
 }`;
     }
 
@@ -1993,12 +2257,12 @@ module.exports = {
       const titles = {
         success: { icon: 'ph-check', name: 'SUCCESS', hex: color || currentTheme.green },
         caution: { icon: 'ph-warning', name: 'CAUTION', hex: color || currentTheme.gold },
-        error: { icon: 'ph-x', name: 'ERROR', hex: color || '#E11D48' },
-        info: { icon: 'ph-info', name: 'INFO', hex: color || currentTheme.blue || '#3B86FE' }
+        error: { icon: 'ph-x', name: 'ERROR', hex: color || currentTheme.danger },
+        info: { icon: 'ph-info', name: 'INFO', hex: color || currentTheme.blue }
       };
 
       const t = titles[type] || titles.info;
-      const bodyText = msg || (type === 'success' ? 'Theme customized & applied successfully!' : type === 'error' ? 'Connection failed. Please retry.' : 'Warm Fusion tokens updated.');
+      const bodyText = msg || (type === 'success' ? 'Theme parameters applied successfully!' : 'Warm Fusion action registered.');
 
       toast.innerHTML = `
         <div class="wf-toast__meta">
@@ -2019,42 +2283,75 @@ module.exports = {
       }, 3500);
     }
 
-    // Search filter function
+    // Comprehensive Search Engine
     function handleSearch(query) {
       query = query.toLowerCase().trim();
-      document.querySelectorAll('.doc-section').forEach(sec => {
+      const clearBtn = document.getElementById('search-clear-btn');
+      if (clearBtn) clearBtn.style.display = query ? 'block' : 'none';
+
+      const sections = document.querySelectorAll('.doc-section');
+      let matches = 0;
+
+      sections.forEach(sec => {
         const text = sec.innerText.toLowerCase();
-        sec.style.display = (!query || text.includes(query)) ? 'block' : 'none';
+        const isMatch = !query || text.includes(query);
+        sec.style.display = isMatch ? 'block' : 'none';
+        if (isMatch) matches++;
       });
     }
 
-    // Active Sidebar Scroll Spy
+    function clearSearch() {
+      const input = document.getElementById('doc-search');
+      if (input) {
+        input.value = '';
+        handleSearch('');
+      }
+    }
+
+    // Sequential & Smooth Scrollspy Engine
     window.addEventListener('scroll', () => {
       const sections = document.querySelectorAll('.doc-section');
-      const scrollPos = window.scrollY + 120;
+      const scrollPos = window.scrollY + 160;
+      let currentActiveId = '';
 
       sections.forEach(sec => {
-        if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
-          const id = sec.getAttribute('id');
-          document.querySelectorAll('.sidebar-link').forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
+        if (sec.style.display !== 'none') {
+          const top = sec.offsetTop;
+          const height = sec.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentActiveId = sec.getAttribute('id');
+          }
         }
       });
-    });
+
+      if (currentActiveId) {
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${currentActiveId}`) {
+            link.classList.add('active');
+          } else if (href && href.startsWith('#')) {
+            link.classList.remove('active');
+          }
+        });
+      }
+    }, { passive: true });
 
     // Keyboard shortcut ⌘K / Ctrl+K
     window.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         const input = document.getElementById('doc-search');
-        if (input) input.focus();
+        if (input) {
+          input.focus();
+          input.select();
+        }
       }
     });
 
     // Initialize on Load
     window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('studio-controls-container').innerHTML = renderStudioControlsHTML();
+      document.getElementById('inline-studio-controls').innerHTML = generateControlsTemplate('inline');
+      document.getElementById('modal-studio-controls').innerHTML = generateControlsTemplate('modal');
       renderCode();
     });
   </script>
