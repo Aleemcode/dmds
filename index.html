@@ -567,14 +567,18 @@
       line-height: 1.45;
       color: var(--wf-ink);
     }
-    .wf-toast--success { background: var(--wf-green-tint); }
+    /* Composite the tint over the solid surface so toasts stay fully opaque —
+       the tints are alpha in dark mode, which otherwise makes overlay toasts see-through. */
+    .wf-toast--success { background: linear-gradient(var(--wf-green-tint), var(--wf-green-tint)), var(--wf-surface); }
     .wf-toast--success .wf-toast__meta { color: var(--wf-green); }
-    .wf-toast--caution { background: var(--wf-gold-tint); }
+    .wf-toast--caution { background: linear-gradient(var(--wf-gold-tint), var(--wf-gold-tint)), var(--wf-surface); }
     .wf-toast--caution .wf-toast__meta { color: var(--amber-11); }
-    .wf-toast--error { background: var(--wf-danger-tint); }
+    .wf-toast--error { background: linear-gradient(var(--wf-danger-tint), var(--wf-danger-tint)), var(--wf-surface); }
     .wf-toast--error .wf-toast__meta { color: var(--wf-danger); }
-    .wf-toast--info { background: var(--wf-blue-tint); }
+    .wf-toast--info { background: linear-gradient(var(--wf-blue-tint), var(--wf-blue-tint)), var(--wf-surface); }
     .wf-toast--info .wf-toast__meta { color: var(--blue-9); }
+    /* caution's dark-brown meta is low-contrast on the dark toast — use bright gold in dark mode */
+    .dark .wf-toast--caution .wf-toast__meta, [data-theme="dark"] .wf-toast--caution .wf-toast__meta { color: var(--wf-gold); }
 
     /* Form Inputs */
     .wf-input {
@@ -816,7 +820,28 @@
         margin: 0 auto 16px;
         opacity: 0.35;
       }
-      .toast-container { right: 16px; left: 16px; bottom: 16px; max-width: none; }
+      .toast-container { right: 16px; left: 16px; bottom: 16px; max-width: none; width: auto; }
+    }
+
+    /* === Launch audit: kill horizontal overflow + phone topbar === */
+    /* Grid/flex children default to min-width:auto (min-content), so a wide code
+       line or long token forces the whole page wider than the viewport. */
+    .portal-layout, .portal-layout > * { min-width: 0; }
+    .doc-section, .wf-card, .wf-panel, .terminal-box { min-width: 0; max-width: 100%; }
+    pre { max-width: 100%; overflow-x: auto; }
+    .doc-section p code, .doc-section li code, .doc-section td code,
+    .doc-section h1 code, .doc-section h2 code, .doc-section h3 code, .doc-section h4 code {
+      overflow-wrap: anywhere; word-break: break-word;
+    }
+
+    @media (max-width: 680px) {
+      .wf-topbar { padding: 10px 16px; }
+      .wf-topbar__actions { gap: 8px; }
+      /* Theme Studio is reachable via the floating action button on small screens */
+      .wf-topbar__actions .wf-btn:not(.wf-btn--secondary) { display: none; }
+      /* GitHub link → icon only (keeps the dark-mode toggle button intact) */
+      a.wf-btn--secondary { font-size: 0; padding-left: 11px; padding-right: 11px; }
+      a.wf-btn--secondary i { font-size: 16px; }
     }
   </style>
 </head>
@@ -996,7 +1021,7 @@
               <i class="ph-bold ph-copy ph-sm"></i> Copy
             </button>
           </div>
-          <div style="display:flex; align-items:center; gap:10px; background:#001230; padding:12px 16px; border-radius:var(--wf-r-md); border:var(--wf-bw-thin) solid var(--wf-border); font-family:var(--wf-f-mono); font-size:13px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#001230; padding:12px 16px; border-radius:var(--wf-r-md); border:var(--wf-bw-thin) solid var(--wf-border); font-family:var(--wf-f-mono); font-size:13px; overflow-x:auto;">
             <span style="color:var(--wf-terra); font-weight:700;">$</span>
             <code id="cli-command-display" style="color:#F8FAFC; white-space:nowrap;">npm install @designmaven/design-system @phosphor-icons/react</code>
           </div>
@@ -1822,6 +1847,11 @@ import { Lightning } from "@phosphor-icons/react";
     // Stateful & Reliable Dark Mode Switcher with Soft Alpha Borders
     function toggleDarkMode() {
       isDarkMode = !isDarkMode;
+      // Theme Studio sets some tokens inline on <html>; the theme-dependent ones would
+      // otherwise override .dark/:root and break the toggle. Clear them so each mode
+      // resolves to its canonical values (brand accents & physics still persist).
+      ['--wf-ground','--wf-ground-2','--wf-surface','--wf-ink','--wf-ink-2','--wf-muted','--wf-forest','--wf-border']
+        .forEach(p => document.documentElement.style.removeProperty(p));
       if (isDarkMode) {
         document.documentElement.classList.add('dark');
         document.documentElement.setAttribute('data-theme', 'dark');
