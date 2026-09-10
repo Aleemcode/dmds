@@ -1086,7 +1086,7 @@
         </p>
         <ul style="padding-left:20px; font-size:14.5px; color:var(--wf-ink-2); line-height:1.7;">
           <li><strong>1. Zero Text Wrapping on Action Labels & Badges:</strong> Buttons, badges, and menu tags must never break onto multiple lines (<code>white-space: nowrap !important;</code>). If container constraints cause overflow, truncate with single-line ellipsis (<code>text-overflow: ellipsis; overflow: hidden;</code>) and reveal full context on hover via tooltips.</li>
-          <li><strong>2. Single Primary CTA Per View:</strong> Every screen must have exactly ONE primary Terra Orange CTA button. Pair secondary actions with surface or neutral styling.</li>
+          <li><strong>2. Single Primary CTA Per View:</strong> Every screen must have exactly ONE high-energy Primary CTA button (using the configured primary brand token <code>var(--wf-terra)</code>). Never compete with multiple high-contrast actions on the same view. Pair secondary actions with surface, neutral, or ghost styling.</li>
           <li><strong>3. Generous Breathing Room:</strong> Never crowd cards or containers without minimum 20px padding and structured visual hierarchy.</li>
           <li><strong>4. Conversational Monospace Feedback:</strong> Always pair state changes with semantic Toast notifications featuring uppercase monospace metadata and clear conversational copy.</li>
           <li><strong>5. Calibrated Dark Mode Ambiance:</strong> In dark mode, replace stark white borders with soft luminous Radix alpha borders (<code>rgba(255, 255, 255, 0.16)</code>) and warm cream text to preserve prolonged visual comfort.</li>
